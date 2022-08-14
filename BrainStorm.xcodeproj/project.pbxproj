@@ -13,6 +13,17 @@
 		25111ACE28A7583900FDF69E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACC28A7583900FDF69E /* Main.storyboard */; };
 		25111AD028A7583C00FDF69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACF28A7583C00FDF69E /* Assets.xcassets */; };
 		25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */; };
+		25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */; };
+		25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADC28A7601600FDF69E /* SavedCardRouter.swift */; };
+		25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADD28A7601600FDF69E /* SavedCardViewController.swift */; };
+		25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADE28A7601600FDF69E /* SavedCardProtocols.swift */; };
+		25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADF28A7601600FDF69E /* SavedCardInteractor.swift */; };
+		25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AE028A7601600FDF69E /* SavedCardContainer.swift */; };
+		25111AE928A761E900FDF69E /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 25111AE828A761E900FDF69E /* PinLayout */; };
+		25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AEB28A8302200FDF69E /* SavedCard.swift */; };
+		25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */; };
+		25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */; };
+		25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,16 @@
 		25111ACF28A7583C00FDF69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25111AD228A7583C00FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25111AD428A7583C00FDF69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardPresenter.swift; sourceTree = "<group>"; };
+		25111ADC28A7601600FDF69E /* SavedCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardRouter.swift; sourceTree = "<group>"; };
+		25111ADD28A7601600FDF69E /* SavedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardViewController.swift; sourceTree = "<group>"; };
+		25111ADE28A7601600FDF69E /* SavedCardProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardProtocols.swift; sourceTree = "<group>"; };
+		25111ADF28A7601600FDF69E /* SavedCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardInteractor.swift; sourceTree = "<group>"; };
+		25111AE028A7601600FDF69E /* SavedCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardContainer.swift; sourceTree = "<group>"; };
+		25111AEB28A8302200FDF69E /* SavedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCard.swift; sourceTree = "<group>"; };
+		25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellRegistrationExtension.swift; sourceTree = "<group>"; };
+		25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardTableViewCell.swift; sourceTree = "<group>"; };
+		25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25111AE928A761E900FDF69E /* PinLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +78,8 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				25111AED28A8A21200FDF69E /* Extensions */,
+				25111ADA28A75FE200FDF69E /* SavedCard */,
 				25111AC628A7583900FDF69E /* AppDelegate.swift */,
 				25111AC828A7583900FDF69E /* SceneDelegate.swift */,
 				25111ACA28A7583900FDF69E /* ViewController.swift */,
@@ -63,8 +87,40 @@
 				25111ACF28A7583C00FDF69E /* Assets.xcassets */,
 				25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */,
 				25111AD428A7583C00FDF69E /* Info.plist */,
+				25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */,
 			);
 			path = BrainStorm;
+			sourceTree = "<group>";
+		};
+		25111ADA28A75FE200FDF69E /* SavedCard */ = {
+			isa = PBXGroup;
+			children = (
+				25111AEA28A8301400FDF69E /* Model */,
+				25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */,
+				25111ADC28A7601600FDF69E /* SavedCardRouter.swift */,
+				25111ADD28A7601600FDF69E /* SavedCardViewController.swift */,
+				25111ADE28A7601600FDF69E /* SavedCardProtocols.swift */,
+				25111ADF28A7601600FDF69E /* SavedCardInteractor.swift */,
+				25111AE028A7601600FDF69E /* SavedCardContainer.swift */,
+			);
+			path = SavedCard;
+			sourceTree = "<group>";
+		};
+		25111AEA28A8301400FDF69E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25111AEB28A8302200FDF69E /* SavedCard.swift */,
+				25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		25111AED28A8A21200FDF69E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +139,9 @@
 			dependencies = (
 			);
 			name = BrainStorm;
+			packageProductDependencies = (
+				25111AE828A761E900FDF69E /* PinLayout */,
+			);
 			productName = BrainStorm;
 			productReference = 25111AC328A7583900FDF69E /* BrainStorm.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 25111ABA28A7583900FDF69E;
+			packageReferences = (
+				25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */,
+			);
 			productRefGroup = 25111AC428A7583900FDF69E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
+				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
+				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
+				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
+				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
+				25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */,
+				25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */,
+				25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */,
+				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
+				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25111AE828A761E900FDF69E /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25111ABB28A7583900FDF69E /* Project object */;
 }
