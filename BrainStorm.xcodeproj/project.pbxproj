@@ -24,6 +24,14 @@
 		25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */; };
 		25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */; };
 		25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */; };
+		25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF528A8F31A00FDF69E /* StartBrainStormPresenter.swift */; };
+		25111AFC28A8F31A00FDF69E /* StartBrainStormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF628A8F31A00FDF69E /* StartBrainStormRouter.swift */; };
+		25111AFD28A8F31A00FDF69E /* StartBrainStormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF728A8F31A00FDF69E /* StartBrainStormViewController.swift */; };
+		25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF828A8F31A00FDF69E /* StartBrainStormProtocols.swift */; };
+		25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */; };
+		25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */; };
+		25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111B0128A9163500FDF69E /* UIScreenExtension.swift */; };
+		25BA42FE28A9383B00D0687F /* StartBrainStormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +53,14 @@
 		25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellRegistrationExtension.swift; sourceTree = "<group>"; };
 		25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardTableViewCell.swift; sourceTree = "<group>"; };
 		25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		25111AF528A8F31A00FDF69E /* StartBrainStormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormPresenter.swift; sourceTree = "<group>"; };
+		25111AF628A8F31A00FDF69E /* StartBrainStormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormRouter.swift; sourceTree = "<group>"; };
+		25111AF728A8F31A00FDF69E /* StartBrainStormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormViewController.swift; sourceTree = "<group>"; };
+		25111AF828A8F31A00FDF69E /* StartBrainStormProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormProtocols.swift; sourceTree = "<group>"; };
+		25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormInteractor.swift; sourceTree = "<group>"; };
+		25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormContainer.swift; sourceTree = "<group>"; };
+		25111B0128A9163500FDF69E /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,7 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				25111AF428A8F2F700FDF69E /* StartBrainStorm */,
 				25111AED28A8A21200FDF69E /* Extensions */,
 				25111ADA28A75FE200FDF69E /* SavedCard */,
 				25111AC628A7583900FDF69E /* AppDelegate.swift */,
@@ -110,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				25111AEB28A8302200FDF69E /* SavedCard.swift */,
+				25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */,
 				25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */,
 			);
 			path = Model;
@@ -119,8 +137,22 @@
 			isa = PBXGroup;
 			children = (
 				25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */,
+				25111B0128A9163500FDF69E /* UIScreenExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		25111AF428A8F2F700FDF69E /* StartBrainStorm */ = {
+			isa = PBXGroup;
+			children = (
+				25111AF528A8F31A00FDF69E /* StartBrainStormPresenter.swift */,
+				25111AF628A8F31A00FDF69E /* StartBrainStormRouter.swift */,
+				25111AF728A8F31A00FDF69E /* StartBrainStormViewController.swift */,
+				25111AF828A8F31A00FDF69E /* StartBrainStormProtocols.swift */,
+				25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */,
+				25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */,
+			);
+			path = StartBrainStorm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,16 +234,24 @@
 			files = (
 				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
+				25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
+				25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */,
+				25111AFC28A8F31A00FDF69E /* StartBrainStormRouter.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
+				25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */,
+				25BA42FE28A9383B00D0687F /* StartBrainStormButton.swift in Sources */,
 				25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */,
 				25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */,
 				25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */,
+				25111AFD28A8F31A00FDF69E /* StartBrainStormViewController.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
+				25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */,
+				25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -386,6 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

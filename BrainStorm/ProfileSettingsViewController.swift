@@ -11,7 +11,7 @@ class ProfileSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Profile"
         view.backgroundColor = .red
         // Do any additional setup after loading the view.
     }

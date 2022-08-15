@@ -13,8 +13,6 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     private let titleLabel = UILabel()
     private let desctiptionLabel = UILabel()
     
-    private var currentImageName: String?
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -26,14 +24,9 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
-        titleLabel.font = .systemFont(ofSize: 17, weight: .regular)
-        titleLabel.textColor = .red
-        desctiptionLabel.font = .systemFont(ofSize: 19, weight: .medium)
-        contentView.layer.cornerRadius = 8
-        contentView.layer.masksToBounds = true
-        
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(desctiptionLabel)
+        setupCard()
+        setupTitle()
+        setupDescription()
     }
     
     override func layoutSubviews() {
@@ -50,6 +43,26 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
             .marginTop(8)
             .horizontally(8)
             .height(22)
+    }
+    
+    func setupTitle(){
+        titleLabel.font = .systemFont(ofSize: 17, weight: .regular)
+        titleLabel.textColor = .red
+        
+        contentView.addSubview(titleLabel)
+    }
+    
+    func setupDescription(){
+        desctiptionLabel.font = .systemFont(ofSize: 19, weight: .medium)
+        
+        contentView.addSubview(desctiptionLabel)
+    }
+    
+    func setupCard(){
+        contentView.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .blue
+        contentView.layer.borderWidth = 1
     }
     
     func configure(with savedCard: SavedCard) {

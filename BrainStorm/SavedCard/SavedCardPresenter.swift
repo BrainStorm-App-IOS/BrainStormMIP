@@ -17,15 +17,6 @@ final class SavedCardPresenter {
     
     private var savedCards: [SavedCard] = [SavedCard(brainStormName: "hello", brainStormDescription: "none"),
                                            SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
                                            SavedCard(brainStormName: "394", brainStormDescription: "9384")]
     
     init(router: SavedCardRouterInput, interactor: SavedCardInteractorInput) {
@@ -38,6 +29,11 @@ extension SavedCardPresenter: SavedCardModuleInput {
 }
 
 extension SavedCardPresenter: SavedCardViewOutput {
+    
+    func openBrainStromSettings() {
+        router.openBrainStormSettings(output: self)
+    }
+    
     func getCount() -> Int {
         return savedCards.count
     }
@@ -52,4 +48,14 @@ extension SavedCardPresenter: SavedCardViewOutput {
 }
 
 extension SavedCardPresenter: SavedCardInteractorOutput {
+}
+
+extension SavedCardPresenter: StartBrainStormModuleOutput{
+    func addCard(savedCard: SavedCard) {
+        savedCards.append(savedCard)
+        view?.reloadData()
+    }
+    
+    
+    
 }
