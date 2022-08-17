@@ -26,6 +26,8 @@ protocol StartBrainStormViewOutput: AnyObject {
     func send(name: String, description: String)
     
     func dismiss()
+    
+    func getDateString() -> String
 }
 
 protocol StartBrainStormInteractorInput: AnyObject {

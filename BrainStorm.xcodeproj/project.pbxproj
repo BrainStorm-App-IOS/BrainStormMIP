@@ -10,7 +10,6 @@
 		25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC628A7583900FDF69E /* AppDelegate.swift */; };
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
-		25111ACE28A7583900FDF69E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACC28A7583900FDF69E /* Main.storyboard */; };
 		25111AD028A7583C00FDF69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACF28A7583C00FDF69E /* Assets.xcassets */; };
 		25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */; };
 		25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */; };
@@ -31,7 +30,20 @@
 		25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */; };
 		25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */; };
 		25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111B0128A9163500FDF69E /* UIScreenExtension.swift */; };
-		25BA42FE28A9383B00D0687F /* StartBrainStormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */; };
+		254937A228ACA70500C38EFB /* MonsterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254937A128ACA70500C38EFB /* MonsterPicker.swift */; };
+		254937A428ACE49B00C38EFB /* MonstersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */; };
+		25AE6F7428AAA54A00669767 /* OpenedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F6E28AAA54A00669767 /* OpenedCardPresenter.swift */; };
+		25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F6F28AAA54A00669767 /* OpenedCardRouter.swift */; };
+		25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7028AAA54A00669767 /* OpenedCardViewController.swift */; };
+		25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7128AAA54A00669767 /* OpenedCardProtocols.swift */; };
+		25AE6F7828AAA54A00669767 /* OpenedCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7228AAA54A00669767 /* OpenedCardInteractor.swift */; };
+		25AE6F7928AAA54A00669767 /* OpenedCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7328AAA54A00669767 /* OpenedCardContainer.swift */; };
+		25AE6F7B28AB559400669767 /* PlayersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7A28AB559400669767 /* PlayersCell.swift */; };
+		25AE6F7D28ABA5F900669767 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7C28ABA5F900669767 /* Person.swift */; };
+		25AE6F7F28ABAAE900669767 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */; };
+		25BA42FE28A9383B00D0687F /* UIColorOrPictureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */; };
+		25D7BE8028ABD5630006C460 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25D7BE7F28ABD5630006C460 /* GoogleService-Info.plist */; };
+		25D7BE8328ABD6130006C460 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 25D7BE8228ABD6130006C460 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +51,6 @@
 		25111AC628A7583900FDF69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25111ACA28A7583900FDF69E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		25111ACD28A7583900FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25111ACF28A7583C00FDF69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25111AD228A7583C00FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25111AD428A7583C00FDF69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +71,19 @@
 		25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormInteractor.swift; sourceTree = "<group>"; };
 		25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormContainer.swift; sourceTree = "<group>"; };
 		25111B0128A9163500FDF69E /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
-		25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormButton.swift; sourceTree = "<group>"; };
+		254937A128ACA70500C38EFB /* MonsterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPicker.swift; sourceTree = "<group>"; };
+		254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersCollectionViewCell.swift; sourceTree = "<group>"; };
+		25AE6F6E28AAA54A00669767 /* OpenedCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardPresenter.swift; sourceTree = "<group>"; };
+		25AE6F6F28AAA54A00669767 /* OpenedCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardRouter.swift; sourceTree = "<group>"; };
+		25AE6F7028AAA54A00669767 /* OpenedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardViewController.swift; sourceTree = "<group>"; };
+		25AE6F7128AAA54A00669767 /* OpenedCardProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardProtocols.swift; sourceTree = "<group>"; };
+		25AE6F7228AAA54A00669767 /* OpenedCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardInteractor.swift; sourceTree = "<group>"; };
+		25AE6F7328AAA54A00669767 /* OpenedCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardContainer.swift; sourceTree = "<group>"; };
+		25AE6F7A28AB559400669767 /* PlayersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersCell.swift; sourceTree = "<group>"; };
+		25AE6F7C28ABA5F900669767 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorOrPictureButton.swift; sourceTree = "<group>"; };
+		25D7BE7F28ABD5630006C460 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25111AE928A761E900FDF69E /* PinLayout in Frameworks */,
+				25D7BE8328ABD6130006C460 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,17 +118,20 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				25D7BE7F28ABD5630006C460 /* GoogleService-Info.plist */,
+				25AE6F6D28AAA51B00669767 /* OpenedCard */,
 				25111AF428A8F2F700FDF69E /* StartBrainStorm */,
 				25111AED28A8A21200FDF69E /* Extensions */,
 				25111ADA28A75FE200FDF69E /* SavedCard */,
 				25111AC628A7583900FDF69E /* AppDelegate.swift */,
 				25111AC828A7583900FDF69E /* SceneDelegate.swift */,
 				25111ACA28A7583900FDF69E /* ViewController.swift */,
-				25111ACC28A7583900FDF69E /* Main.storyboard */,
 				25111ACF28A7583C00FDF69E /* Assets.xcassets */,
 				25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */,
 				25111AD428A7583C00FDF69E /* Info.plist */,
 				25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */,
+				254937A128ACA70500C38EFB /* MonsterPicker.swift */,
+				254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */,
 			);
 			path = BrainStorm;
 			sourceTree = "<group>";
@@ -127,8 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				25111AEB28A8302200FDF69E /* SavedCard.swift */,
-				25BA42FD28A9383B00D0687F /* StartBrainStormButton.swift */,
+				25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */,
 				25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */,
+				25AE6F7C28ABA5F900669767 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +166,7 @@
 			children = (
 				25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */,
 				25111B0128A9163500FDF69E /* UIScreenExtension.swift */,
+				25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,8 +180,22 @@
 				25111AF828A8F31A00FDF69E /* StartBrainStormProtocols.swift */,
 				25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */,
 				25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */,
+				25AE6F7A28AB559400669767 /* PlayersCell.swift */,
 			);
 			path = StartBrainStorm;
+			sourceTree = "<group>";
+		};
+		25AE6F6D28AAA51B00669767 /* OpenedCard */ = {
+			isa = PBXGroup;
+			children = (
+				25AE6F6E28AAA54A00669767 /* OpenedCardPresenter.swift */,
+				25AE6F6F28AAA54A00669767 /* OpenedCardRouter.swift */,
+				25AE6F7028AAA54A00669767 /* OpenedCardViewController.swift */,
+				25AE6F7128AAA54A00669767 /* OpenedCardProtocols.swift */,
+				25AE6F7228AAA54A00669767 /* OpenedCardInteractor.swift */,
+				25AE6F7328AAA54A00669767 /* OpenedCardContainer.swift */,
+			);
+			path = OpenedCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +216,7 @@
 			name = BrainStorm;
 			packageProductDependencies = (
 				25111AE828A761E900FDF69E /* PinLayout */,
+				25D7BE8228ABD6130006C460 /* FirebaseFirestore */,
 			);
 			productName = BrainStorm;
 			productReference = 25111AC328A7583900FDF69E /* BrainStorm.app */;
@@ -204,6 +248,8 @@
 			mainGroup = 25111ABA28A7583900FDF69E;
 			packageReferences = (
 				25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */,
+				25D7BE7E28ABCB750006C460 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				25D7BE8128ABD6130006C460 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 25111AC428A7583900FDF69E /* Products */;
 			projectDirPath = "";
@@ -221,7 +267,7 @@
 			files = (
 				25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */,
 				25111AD028A7583C00FDF69E /* Assets.xcassets in Resources */,
-				25111ACE28A7583900FDF69E /* Main.storyboard in Resources */,
+				25D7BE8028ABD5630006C460 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,23 +280,34 @@
 			files = (
 				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
+				25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */,
 				25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */,
+				25AE6F7B28AB559400669767 /* PlayersCell.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */,
 				25111AFC28A8F31A00FDF69E /* StartBrainStormRouter.swift in Sources */,
+				25AE6F7828AAA54A00669767 /* OpenedCardInteractor.swift in Sources */,
+				25AE6F7D28ABA5F900669767 /* Person.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
+				25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
+				254937A228ACA70500C38EFB /* MonsterPicker.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
 				25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */,
-				25BA42FE28A9383B00D0687F /* StartBrainStormButton.swift in Sources */,
+				25AE6F7928AAA54A00669767 /* OpenedCardContainer.swift in Sources */,
+				25AE6F7F28ABAAE900669767 /* UIColorExtension.swift in Sources */,
+				25BA42FE28A9383B00D0687F /* UIColorOrPictureButton.swift in Sources */,
 				25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */,
 				25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */,
 				25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */,
+				25AE6F7428AAA54A00669767 /* OpenedCardPresenter.swift in Sources */,
 				25111AFD28A8F31A00FDF69E /* StartBrainStormViewController.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
+				254937A428ACE49B00C38EFB /* MonstersCollectionViewCell.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
 				25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */,
+				25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */,
 				25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
 			);
@@ -259,14 +316,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		25111ACC28A7583900FDF69E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25111ACD28A7583900FDF69E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,7 +453,6 @@
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -432,7 +480,6 @@
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,6 +527,22 @@
 				kind = branch;
 			};
 		};
+		25D7BE7E28ABCB750006C460 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		25D7BE8128ABD6130006C460 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -487,6 +550,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */;
 			productName = PinLayout;
+		};
+		25D7BE8228ABD6130006C460 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25D7BE8128ABD6130006C460 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

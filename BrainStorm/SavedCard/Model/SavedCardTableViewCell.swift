@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 final class SavedCardCollectionViewCell: UICollectionViewCell {
-    private let titleLabel = UILabel()
-    private let desctiptionLabel = UILabel()
+    private let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+    private let desctiptionLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+    private let dateLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,6 +26,7 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         setupCard()
+        setupDate()
         setupTitle()
         setupDescription()
     }
@@ -32,43 +34,57 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        dateLabel.pin
+            .top(15)
+            .left(27)
+        
         titleLabel.pin
-            .top()
-            .marginTop(8)
-            .horizontally(8)
-            .height(24)
+            .below(of: dateLabel)
+            .marginTop(45)
+            .left(30)
         
         desctiptionLabel.pin
-            .below(of: titleLabel)
-            .marginTop(8)
-            .horizontally(8)
-            .height(22)
+            .bottom(15)
+            .right(27)
     }
     
     func setupTitle(){
-        titleLabel.font = .systemFont(ofSize: 17, weight: .regular)
-        titleLabel.textColor = .red
+        titleLabel.font = .systemFont(ofSize: 30, weight: .regular)
+        titleLabel.textColor = .black | .white
+
         
         contentView.addSubview(titleLabel)
     }
     
     func setupDescription(){
-        desctiptionLabel.font = .systemFont(ofSize: 19, weight: .medium)
+        desctiptionLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        desctiptionLabel.textAlignment = .right
+        desctiptionLabel.textColor = .gray | .white
         
         contentView.addSubview(desctiptionLabel)
     }
     
+    func setupDate(){
+        dateLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        dateLabel.textColor = .gray | .white
+        
+        contentView.addSubview(dateLabel)
+    }
+    
     func setupCard(){
-        contentView.layer.cornerRadius = 8
+        contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1) | .blue
         contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = CGColor(red: 0, green: 0, blue: 255, alpha: 1)
     }
     
     func configure(with savedCard: SavedCard) {
         defer {
             setNeedsLayout()
         }
+        
+        dateLabel.text = savedCard.brainStormDate
         titleLabel.text = savedCard.brainStormName
         desctiptionLabel.text = savedCard.brainStormDescription
     }

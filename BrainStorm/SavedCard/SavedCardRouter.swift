@@ -13,6 +13,16 @@ final class SavedCardRouter {
 }
 
 extension SavedCardRouter: SavedCardRouterInput {
+    func openCard(output: OpenedCardModuleOutput, savedCard: SavedCard) {
+        let context = OpenedCardContext(moduleOutput: output, savedCard: savedCard)
+        let container = OpenedCardContainer.assemble(with: context)
+        
+        
+        let navigationController = UINavigationController(rootViewController: container.viewController)
+        
+        viewController?.present(navigationController, animated: true)
+    }
+    
     func openBrainStormSettings(output: StartBrainStormModuleOutput){
         let startBrainStormContext = StartBrainStormContext(moduleOutput: output)
         let startBrainStormContainer = StartBrainStormContainer.assemble(with: startBrainStormContext)
