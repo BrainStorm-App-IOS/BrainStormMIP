@@ -8,72 +8,30 @@
 import UIKit
 import PinLayout
 
-//class ViewController: UIViewController, UINavigationControllerDelegate {
-//    private let productsButton = UIButton()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        setup()
-//    }
-//
-//    private func setup() {
-//        view.addSubview(productsButton)
-//        productsButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
-//        productsButton.layer.cornerRadius = 8
-//        productsButton.backgroundColor = .magenta
-//        productsButton.setTitle("Мои карты", for: .normal)
-//        productsButton.addTarget(self, action: #selector(didTapProductsButton), for: .touchUpInside)
-//    }
-//
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        productsButton.pin
-//            .top(300)
-//            .horizontally(32)
-//            .height(40)
-//    }
-//
-//    @objc
-//    private func didTapProductsButton() {
-//        // MARK: VIPER
-//        let context = SavedCardContext(moduleOutput: self)
-//        let container = SavedCardContainer.assemble(with: context)
-//
-//        let navigationController = UINavigationController(rootViewController: container.viewController)
-//        present(navigationController, animated: true)
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//extension ViewController: SavedCardModuleOutput {
-//    func productCollectionModuleWillClose() {
-//
-//    }
-//}
-
 
 class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Юла Сириус"
+        let profile = ProfileSettingsViewController()
+        profile.title = "Профиль"
         
-        let profileSettings = ProfileSettingsViewController()
-        let SavedCardContext = SavedCardContext(moduleOutput: self)
-        let SavedCardContainer = SavedCardContainer.assemble(with: SavedCardContext)
-        let SavedCardNavigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
+        let savedCardContext = SavedCardContext(moduleOutput: self)
+        let savedCardContainer = SavedCardContainer.assemble(with: savedCardContext)
+        let savedCardNavigationController = UINavigationController(rootViewController: savedCardContainer.viewController)
         
-        SavedCardNavigationController.tabBarItem.image = UIImage(systemName: "house")
-        profileSettings.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        savedCardNavigationController.tabBarItem.image = UIImage(systemName: "house")
+        profile.navigationItem.largeTitleDisplayMode = .always
+        let profileNavigationController = UINavigationController(rootViewController: profile)
+        savedCardNavigationController.navigationBar.prefersLargeTitles = true
+        profileNavigationController.navigationBar.prefersLargeTitles = true
+        savedCardNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
+        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 2)
         
-        setViewControllers([SavedCardNavigationController, profileSettings], animated: true)
+        
+        tabBar.tintColor = .black
+        setViewControllers([savedCardNavigationController, profileNavigationController], animated: true)
     }
 }
 

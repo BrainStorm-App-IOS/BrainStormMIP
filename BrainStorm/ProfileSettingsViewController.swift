@@ -11,20 +11,38 @@ class ProfileSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Выйти",
+            style: .done,
+            target: self,
+            action: #selector(didTapSignOut))
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func didTapSignOut() {
+        let sheet = UIAlertController(title: "Выход", message: "Вы уверены, что хотите выйти из аккаунта?", preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        sheet.addAction(UIAlertAction(title: "Выйти", style: .destructive, handler: { _ in
+            AuthManager.shared.signOut { [weak self] success in
+                if success {
+                    DispatchQueue.main.async {
+                        UserDefaults.standard.set(nil, forKey: "email")
+                        UserDefaults.standard.set(nil, forKey: "name")
+                        let signInVc = SignInViewController()
+                        signInVc.navigationItem.largeTitleDisplayMode = .always
+                        
+                        let navVc = UINavigationController(rootViewController: signInVc)
+                        navVc.navigationBar.prefersLargeTitles = true
+                        navVc.modalPresentationStyle = .fullScreen
+                        self?.present(navVc, animated: true, completion: nil)
+                    }
+                }
+                
+            }
+        }))
+        
+        present(sheet, animated: true)
+        
     }
-    */
-
 }

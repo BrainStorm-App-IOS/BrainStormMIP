@@ -11,7 +11,6 @@
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
 		25111ACE28A7583900FDF69E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACC28A7583900FDF69E /* Main.storyboard */; };
-		25111AD028A7583C00FDF69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACF28A7583C00FDF69E /* Assets.xcassets */; };
 		25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */; };
 		25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */; };
 		25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADC28A7601600FDF69E /* SavedCardRouter.swift */; };
@@ -24,6 +23,16 @@
 		25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */; };
 		25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */; };
 		25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */; };
+		4D09CB6628AD277D00A8454B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D09CB6528AD277D00A8454B /* Assets.xcassets */; };
+		4D5C838728A95F3F005F01F8 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 4D5C838628A95F3F005F01F8 /* PinLayout */; };
+		4D5C838A28AA2C26005F01F8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C838928AA2C26005F01F8 /* SignInViewController.swift */; };
+		4D5C838C28AA2CAB005F01F8 /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C838B28AA2CAB005F01F8 /* SignInHeaderView.swift */; };
+		4D5C838E28AA2D65005F01F8 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C838D28AA2D65005F01F8 /* AuthManager.swift */; };
+		4D5C839028AA2E21005F01F8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C838F28AA2E21005F01F8 /* SignUpViewController.swift */; };
+		4D5C839228AA2EA1005F01F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C839128AA2EA1005F01F8 /* User.swift */; };
+		4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C839328AA696A005F01F8 /* DatabaseManager.swift */; };
+		4D5C83A028AABDB5005F01F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */; };
+		70D6B2DF9C9B70D8BE5B4427 /* Pods_BrainStorm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F52FE33214E627A5760F47 /* Pods_BrainStorm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +41,6 @@
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25111ACA28A7583900FDF69E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25111ACD28A7583900FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		25111ACF28A7583C00FDF69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25111AD228A7583C00FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25111AD428A7583C00FDF69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardPresenter.swift; sourceTree = "<group>"; };
@@ -45,6 +53,17 @@
 		25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellRegistrationExtension.swift; sourceTree = "<group>"; };
 		25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardTableViewCell.swift; sourceTree = "<group>"; };
 		25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		4A16B9599C749D0C20EC367A /* Pods-BrainStorm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainStorm.debug.xcconfig"; path = "Target Support Files/Pods-BrainStorm/Pods-BrainStorm.debug.xcconfig"; sourceTree = "<group>"; };
+		4D09CB6528AD277D00A8454B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D5C838928AA2C26005F01F8 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4D5C838B28AA2CAB005F01F8 /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
+		4D5C838D28AA2D65005F01F8 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		4D5C838F28AA2E21005F01F8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4D5C839128AA2EA1005F01F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4D5C839328AA696A005F01F8 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89E16CC66DFC59EEB58B1C9F /* Pods-BrainStorm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainStorm.release.xcconfig"; path = "Target Support Files/Pods-BrainStorm/Pods-BrainStorm.release.xcconfig"; sourceTree = "<group>"; };
+		E9F52FE33214E627A5760F47 /* Pods_BrainStorm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainStorm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,18 +71,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5C838728A95F3F005F01F8 /* PinLayout in Frameworks */,
 				25111AE928A761E900FDF69E /* PinLayout in Frameworks */,
+				70D6B2DF9C9B70D8BE5B4427 /* Pods_BrainStorm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		168777789A816B591CA04C9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A16B9599C749D0C20EC367A /* Pods-BrainStorm.debug.xcconfig */,
+				89E16CC66DFC59EEB58B1C9F /* Pods-BrainStorm.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		25111ABA28A7583900FDF69E = {
 			isa = PBXGroup;
 			children = (
+				4D09CB6528AD277D00A8454B /* Assets.xcassets */,
 				25111AC528A7583900FDF69E /* BrainStorm */,
 				25111AC428A7583900FDF69E /* Products */,
+				168777789A816B591CA04C9B /* Pods */,
+				E04184E0AE9593375CBBE595 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,16 +111,18 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				4D5C839528AA7D07005F01F8 /* Other */,
+				4D5C838828A95F74005F01F8 /* Auth */,
 				25111AED28A8A21200FDF69E /* Extensions */,
 				25111ADA28A75FE200FDF69E /* SavedCard */,
 				25111AC628A7583900FDF69E /* AppDelegate.swift */,
 				25111AC828A7583900FDF69E /* SceneDelegate.swift */,
 				25111ACA28A7583900FDF69E /* ViewController.swift */,
 				25111ACC28A7583900FDF69E /* Main.storyboard */,
-				25111ACF28A7583C00FDF69E /* Assets.xcassets */,
 				25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */,
 				25111AD428A7583C00FDF69E /* Info.plist */,
 				25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */,
+				4D5C839128AA2EA1005F01F8 /* User.swift */,
 			);
 			path = BrainStorm;
 			sourceTree = "<group>";
@@ -123,6 +158,34 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4D5C838828A95F74005F01F8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4D5C838928AA2C26005F01F8 /* SignInViewController.swift */,
+				4D5C838B28AA2CAB005F01F8 /* SignInHeaderView.swift */,
+				4D5C838D28AA2D65005F01F8 /* AuthManager.swift */,
+				4D5C838F28AA2E21005F01F8 /* SignUpViewController.swift */,
+				4D5C839328AA696A005F01F8 /* DatabaseManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4D5C839528AA7D07005F01F8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E04184E0AE9593375CBBE595 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9F52FE33214E627A5760F47 /* Pods_BrainStorm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25111AD728A7583C00FDF69E /* Build configuration list for PBXNativeTarget "BrainStorm" */;
 			buildPhases = (
+				1479A71C90690B520BADFA79 /* [CP] Check Pods Manifest.lock */,
 				25111ABF28A7583900FDF69E /* Sources */,
 				25111AC028A7583900FDF69E /* Frameworks */,
 				25111AC128A7583900FDF69E /* Resources */,
+				3EDAC06AE678A7D7757672BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,6 +206,7 @@
 			name = BrainStorm;
 			packageProductDependencies = (
 				25111AE828A761E900FDF69E /* PinLayout */,
+				4D5C838628A95F3F005F01F8 /* PinLayout */,
 			);
 			productName = BrainStorm;
 			productReference = 25111AC328A7583900FDF69E /* BrainStorm.app */;
@@ -172,6 +238,7 @@
 			mainGroup = 25111ABA28A7583900FDF69E;
 			packageReferences = (
 				25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */,
+				4D5C838528A95F3F005F01F8 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = 25111AC428A7583900FDF69E /* Products */;
 			projectDirPath = "";
@@ -188,28 +255,77 @@
 			buildActionMask = 2147483647;
 			files = (
 				25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */,
-				25111AD028A7583C00FDF69E /* Assets.xcassets in Resources */,
+				4D5C83A028AABDB5005F01F8 /* GoogleService-Info.plist in Resources */,
+				4D09CB6628AD277D00A8454B /* Assets.xcassets in Resources */,
 				25111ACE28A7583900FDF69E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1479A71C90690B520BADFA79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BrainStorm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EDAC06AE678A7D7757672BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrainStorm/Pods-BrainStorm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrainStorm/Pods-BrainStorm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BrainStorm/Pods-BrainStorm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25111ABF28A7583900FDF69E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5C838A28AA2C26005F01F8 /* SignInViewController.swift in Sources */,
 				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
+				4D5C838C28AA2CAB005F01F8 /* SignInHeaderView.swift in Sources */,
+				4D5C839028AA2E21005F01F8 /* SignUpViewController.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
+				4D5C838E28AA2D65005F01F8 /* AuthManager.swift in Sources */,
 				25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */,
 				25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */,
 				25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */,
+				4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */,
+				4D5C839228AA2EA1005F01F8 /* User.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
@@ -354,6 +470,7 @@
 		};
 		25111AD828A7583C00FDF69E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A16B9599C749D0C20EC367A /* Pods-BrainStorm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -381,6 +498,7 @@
 		};
 		25111AD928A7583C00FDF69E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E16CC66DFC59EEB58B1C9F /* Pods-BrainStorm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -438,12 +556,25 @@
 				kind = branch;
 			};
 		};
+		4D5C838528A95F3F005F01F8 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		25111AE828A761E900FDF69E /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 25111AE728A761E900FDF69E /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		4D5C838628A95F3F005F01F8 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D5C838528A95F3F005F01F8 /* XCRemoteSwiftPackageReference "PinLayout" */;
 			productName = PinLayout;
 		};
 /* End XCSwiftPackageProductDependency section */
