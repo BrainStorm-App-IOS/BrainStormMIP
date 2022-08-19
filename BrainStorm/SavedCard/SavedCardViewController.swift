@@ -83,7 +83,7 @@ final class SavedCardViewController: UIViewController {
     
     func setup(){
         
-        self.title = "BrainStorm"
+        self.title = "Ваши идеи"
         
         setupSavedCardsCollectionView()
         setupStartBrainStormButton()

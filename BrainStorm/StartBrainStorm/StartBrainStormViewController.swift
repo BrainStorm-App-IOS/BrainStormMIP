@@ -57,6 +57,8 @@ final class StartBrainStormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title  = "Брейншторм"
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         view.addGestureRecognizer(tapGesture)
         
@@ -134,7 +136,7 @@ final class StartBrainStormViewController: UIViewController {
     func setupChooseCountOfPeopleLable(){
         chooseCountOfPeopleLable.numberOfLines = 0
         chooseCountOfPeopleLable.font = .systemFont(ofSize: 20, weight: UIFont.Weight(rawValue: 15))
-        chooseCountOfPeopleLable.text = "Количество играков: "
+        chooseCountOfPeopleLable.text = "Количество игроков: "
         chooseCountOfPeopleLable.center = view.center
         view.addSubview(chooseCountOfPeopleLable)
     }
