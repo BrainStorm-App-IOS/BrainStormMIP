@@ -17,11 +17,10 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         let profileSettings = ProfileSettingsViewController()
-        
         profileSettings.title = "Profile"
+        
         let SavedCardContext = SavedCardContext(moduleOutput: self)
         let SavedCardContainer = SavedCardContainer.assemble(with: SavedCardContext)
         let SavedCardNavigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
@@ -37,7 +36,6 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = Color.tapBarTincColor
         
         tabBar.unselectedItemTintColor = Color.defaultBlackAndWhiteColor
-    
     }
 }
 
