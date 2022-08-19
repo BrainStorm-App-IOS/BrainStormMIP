@@ -25,8 +25,10 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 }
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
-    func send(name: String, description: String) {
-        moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name, brainStormDescription: description))
+    func startBrainStorm(name: String) {
+        moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name,
+                                                   brainStormDescription: " ",
+                                                   brainStormDate: getDateString()))
         router.dismiss()
         
     }
@@ -39,7 +41,18 @@ extension StartBrainStormPresenter: StartBrainStormViewOutput {
         router.dismiss()
     }
     
+    func getDateString() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from:  date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        
+        return "\(day).\(month).\(year)"
+    }
+    
 }
 
 extension StartBrainStormPresenter: StartBrainStormInteractorOutput {
 }
+

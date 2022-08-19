@@ -27,6 +27,8 @@ protocol SavedCardViewOutput: AnyObject {
     func getCount() -> Int
     
     func openBrainStromSettings()
+    
+    func didTapCard(savedCard: SavedCard)
 }
 
 protocol SavedCardInteractorInput: AnyObject {
@@ -37,4 +39,6 @@ protocol SavedCardInteractorOutput: AnyObject {
 
 protocol SavedCardRouterInput: AnyObject {
     func openBrainStormSettings(output: StartBrainStormModuleOutput)
+    
+    func openCard(output: OpenedCardModuleOutput, savedCard: SavedCard)
 }

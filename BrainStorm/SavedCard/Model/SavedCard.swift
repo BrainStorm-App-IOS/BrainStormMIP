@@ -11,4 +11,7 @@ import Foundation
 struct SavedCard{
     var brainStormName: String
     var brainStormDescription: String
+    
+    var brainStormDate: String
+    var persons: [Person]?
 }
