@@ -25,7 +25,7 @@ protocol StartBrainStormViewOutput: AnyObject {
     
     func startBrainStorm(name: String)
     
-    func dismiss()
+    func openEnterPlayerName(count: Int)
     
     func getDateString() -> String
 }
@@ -37,5 +37,5 @@ protocol StartBrainStormInteractorOutput: AnyObject {
 }
 
 protocol StartBrainStormRouterInput: AnyObject {
-    func dismiss()
+    func openEnterPlayerName(count: Int)
 }

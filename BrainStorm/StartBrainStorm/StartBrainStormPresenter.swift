@@ -25,11 +25,14 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 }
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
+    func openEnterPlayerName(count: Int) {
+        router.openEnterPlayerName(count: count)
+    }
+    
     func startBrainStorm(name: String) {
         moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name,
                                                    brainStormDescription: " ",
                                                    brainStormDate: getDateString()))
-        router.dismiss()
         
     }
     
@@ -37,9 +40,6 @@ extension StartBrainStormPresenter: StartBrainStormViewOutput {
         
     }
     
-    func dismiss() {
-        router.dismiss()
-    }
     
     func getDateString() -> String {
         let date = Date()

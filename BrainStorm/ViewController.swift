@@ -13,29 +13,30 @@ struct MainNavigationController {
     static var navigationController: UINavigationController = UINavigationController()
 }
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, ProfileModuleOutput {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profileSettings = ProfileSettingsViewController()
-        profileSettings.title = "Profile"
-        
         let SavedCardContext = SavedCardContext(moduleOutput: self)
         let SavedCardContainer = SavedCardContainer.assemble(with: SavedCardContext)
-        let SavedCardNavigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
+        MainNavigationController.navigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
         
-        MainNavigationController.navigationController = SavedCardNavigationController
-        //SavedCardNavigationController.navigationBar.prefersLargeTitles = true
-        SavedCardNavigationController.navigationBar.isHidden = true
         
-        SavedCardNavigationController.tabBarItem.image = UIImage(systemName: "brain")
-        profileSettings.tabBarItem.image = UIImage(systemName: "person.crop.circle")
+        let ProfileContext = ProfileContext(moduleOutput: self)
+        let ProfileContainer = ProfileContainer.assemble(with: ProfileContext)
+        let ProfileNavigationController = UINavigationController(rootViewController: ProfileContainer.viewController)
+        MainNavigationController.navigationController.navigationBar.prefersLargeTitles = true
+        //SavedCardNavigationController.navigationBar.isHidden = true
+        ProfileNavigationController.navigationBar.prefersLargeTitles = true
         
-        setViewControllers([SavedCardNavigationController, profileSettings], animated: true)
-        tabBar.tintColor = Color.tapBarTincColor
+        MainNavigationController.navigationController.tabBarItem.image = UIImage(systemName: "brain")
+        ProfileContainer.viewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
-        tabBar.unselectedItemTintColor = Color.defaultBlackAndWhiteColor
+        setViewControllers([MainNavigationController.navigationController,ProfileNavigationController], animated: true)
+        tabBar.tintColor = .blue | .yellow
+        
+        tabBar.unselectedItemTintColor = .black | .white
     }
 }
 

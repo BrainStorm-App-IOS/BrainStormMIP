@@ -10,7 +10,7 @@
 		25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC628A7583900FDF69E /* AppDelegate.swift */; };
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
-		25111ACE28A7583900FDF69E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111ACC28A7583900FDF69E /* Main.storyboard */; };
+		25111ACE28A7583900FDF69E /* (null) in Resources */ = {isa = PBXBuildFile; };
 		25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */; };
 		25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */; };
 		25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ADC28A7601600FDF69E /* SavedCardRouter.swift */; };
@@ -33,6 +33,35 @@
 		4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C839328AA696A005F01F8 /* DatabaseManager.swift */; };
 		4D5C83A028AABDB5005F01F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */; };
 		70D6B2DF9C9B70D8BE5B4427 /* Pods_BrainStorm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F52FE33214E627A5760F47 /* Pods_BrainStorm.framework */; };
+		82810EF228B0239B005D8FC0 /* EnterPlayerNameContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EEC28B0239B005D8FC0 /* EnterPlayerNameContainer.swift */; };
+		82810EF328B0239B005D8FC0 /* EnterPlayerNameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EED28B0239B005D8FC0 /* EnterPlayerNameRouter.swift */; };
+		82810EF428B0239B005D8FC0 /* EnterPlayerNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EEE28B0239B005D8FC0 /* EnterPlayerNameViewController.swift */; };
+		82810EF528B0239B005D8FC0 /* EnterPlayerNameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EEF28B0239B005D8FC0 /* EnterPlayerNameInteractor.swift */; };
+		82810EF628B0239B005D8FC0 /* EnterPlayerNamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EF028B0239B005D8FC0 /* EnterPlayerNamePresenter.swift */; };
+		82810EF728B0239B005D8FC0 /* EnterPlayerNameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82810EF128B0239B005D8FC0 /* EnterPlayerNameProtocols.swift */; };
+		82BD761528B018BD00FFBFEF /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD75F528B018B900FFBFEF /* UIScreenExtension.swift */; };
+		82BD761828B018BD00FFBFEF /* UIColorOrPictureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD75F828B018BA00FFBFEF /* UIColorOrPictureButton.swift */; };
+		82BD761928B018BD00FFBFEF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD75F928B018BA00FFBFEF /* UIColorExtension.swift */; };
+		82BD761C28B018BD00FFBFEF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD75FC28B018BB00FFBFEF /* Person.swift */; };
+		82BD761F28B018BD00FFBFEF /* StartBrainStormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760028B018BB00FFBFEF /* StartBrainStormViewController.swift */; };
+		82BD762028B018BD00FFBFEF /* StartBrainStormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760128B018BB00FFBFEF /* StartBrainStormContainer.swift */; };
+		82BD762128B018BD00FFBFEF /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760228B018BB00FFBFEF /* ThemeCell.swift */; };
+		82BD762228B018BD00FFBFEF /* StartBrainStormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760328B018BB00FFBFEF /* StartBrainStormRouter.swift */; };
+		82BD762328B018BD00FFBFEF /* StartBrainStormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760428B018BB00FFBFEF /* StartBrainStormPresenter.swift */; };
+		82BD762428B018BD00FFBFEF /* StartBrainStormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760528B018BB00FFBFEF /* StartBrainStormInteractor.swift */; };
+		82BD762528B018BD00FFBFEF /* StartBrainStormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD760628B018BB00FFBFEF /* StartBrainStormProtocols.swift */; };
+		82BD763A28B01A8600FFBFEF /* OpenedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763428B01A8500FFBFEF /* OpenedCardViewController.swift */; };
+		82BD763B28B01A8600FFBFEF /* OpenedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763528B01A8500FFBFEF /* OpenedCardRouter.swift */; };
+		82BD763C28B01A8600FFBFEF /* OpenedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763628B01A8500FFBFEF /* OpenedCardPresenter.swift */; };
+		82BD763D28B01A8600FFBFEF /* OpenedCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763728B01A8500FFBFEF /* OpenedCardProtocols.swift */; };
+		82BD763E28B01A8600FFBFEF /* OpenedCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763828B01A8500FFBFEF /* OpenedCardContainer.swift */; };
+		82BD763F28B01A8600FFBFEF /* OpenedCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD763928B01A8500FFBFEF /* OpenedCardInteractor.swift */; };
+		82BD764728B01F4900FFBFEF /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764128B01F4900FFBFEF /* ProfilePresenter.swift */; };
+		82BD764828B01F4900FFBFEF /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764228B01F4900FFBFEF /* ProfileRouter.swift */; };
+		82BD764928B01F4900FFBFEF /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764328B01F4900FFBFEF /* ProfileProtocols.swift */; };
+		82BD764A28B01F4900FFBFEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764428B01F4900FFBFEF /* ProfileViewController.swift */; };
+		82BD764B28B01F4900FFBFEF /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764528B01F4900FFBFEF /* ProfileInteractor.swift */; };
+		82BD764C28B01F4900FFBFEF /* ProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD764628B01F4900FFBFEF /* ProfileContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +69,6 @@
 		25111AC628A7583900FDF69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25111ACA28A7583900FDF69E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		25111ACD28A7583900FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25111AD228A7583C00FDF69E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25111AD428A7583C00FDF69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25111ADB28A7601600FDF69E /* SavedCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardPresenter.swift; sourceTree = "<group>"; };
@@ -62,6 +90,35 @@
 		4D5C839128AA2EA1005F01F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D5C839328AA696A005F01F8 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		82810EEC28B0239B005D8FC0 /* EnterPlayerNameContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameContainer.swift; sourceTree = "<group>"; };
+		82810EED28B0239B005D8FC0 /* EnterPlayerNameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameRouter.swift; sourceTree = "<group>"; };
+		82810EEE28B0239B005D8FC0 /* EnterPlayerNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameViewController.swift; sourceTree = "<group>"; };
+		82810EEF28B0239B005D8FC0 /* EnterPlayerNameInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameInteractor.swift; sourceTree = "<group>"; };
+		82810EF028B0239B005D8FC0 /* EnterPlayerNamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNamePresenter.swift; sourceTree = "<group>"; };
+		82810EF128B0239B005D8FC0 /* EnterPlayerNameProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPlayerNameProtocols.swift; sourceTree = "<group>"; };
+		82BD75F528B018B900FFBFEF /* UIScreenExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		82BD75F828B018BA00FFBFEF /* UIColorOrPictureButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorOrPictureButton.swift; sourceTree = "<group>"; };
+		82BD75F928B018BA00FFBFEF /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		82BD75FC28B018BB00FFBFEF /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		82BD760028B018BB00FFBFEF /* StartBrainStormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormViewController.swift; sourceTree = "<group>"; };
+		82BD760128B018BB00FFBFEF /* StartBrainStormContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormContainer.swift; sourceTree = "<group>"; };
+		82BD760228B018BB00FFBFEF /* ThemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		82BD760328B018BB00FFBFEF /* StartBrainStormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormRouter.swift; sourceTree = "<group>"; };
+		82BD760428B018BB00FFBFEF /* StartBrainStormPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormPresenter.swift; sourceTree = "<group>"; };
+		82BD760528B018BB00FFBFEF /* StartBrainStormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormInteractor.swift; sourceTree = "<group>"; };
+		82BD760628B018BB00FFBFEF /* StartBrainStormProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBrainStormProtocols.swift; sourceTree = "<group>"; };
+		82BD763428B01A8500FFBFEF /* OpenedCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardViewController.swift; sourceTree = "<group>"; };
+		82BD763528B01A8500FFBFEF /* OpenedCardRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardRouter.swift; sourceTree = "<group>"; };
+		82BD763628B01A8500FFBFEF /* OpenedCardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardPresenter.swift; sourceTree = "<group>"; };
+		82BD763728B01A8500FFBFEF /* OpenedCardProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardProtocols.swift; sourceTree = "<group>"; };
+		82BD763828B01A8500FFBFEF /* OpenedCardContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardContainer.swift; sourceTree = "<group>"; };
+		82BD763928B01A8500FFBFEF /* OpenedCardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenedCardInteractor.swift; sourceTree = "<group>"; };
+		82BD764128B01F4900FFBFEF /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		82BD764228B01F4900FFBFEF /* ProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		82BD764328B01F4900FFBFEF /* ProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
+		82BD764428B01F4900FFBFEF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		82BD764528B01F4900FFBFEF /* ProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		82BD764628B01F4900FFBFEF /* ProfileContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainer.swift; sourceTree = "<group>"; };
 		89E16CC66DFC59EEB58B1C9F /* Pods-BrainStorm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainStorm.release.xcconfig"; path = "Target Support Files/Pods-BrainStorm/Pods-BrainStorm.release.xcconfig"; sourceTree = "<group>"; };
 		E9F52FE33214E627A5760F47 /* Pods_BrainStorm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainStorm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +168,10 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				82810EEB28B0239B005D8FC0 /* EnterPlayerName */,
+				82BD764028B01F4900FFBFEF /* Profile */,
+				82BD763328B01A8500FFBFEF /* OpenedCard */,
+				82BD75FF28B018BB00FFBFEF /* StartBrainStorm */,
 				4D5C839528AA7D07005F01F8 /* Other */,
 				4D5C838828A95F74005F01F8 /* Auth */,
 				25111AED28A8A21200FDF69E /* Extensions */,
@@ -118,7 +179,6 @@
 				25111AC628A7583900FDF69E /* AppDelegate.swift */,
 				25111AC828A7583900FDF69E /* SceneDelegate.swift */,
 				25111ACA28A7583900FDF69E /* ViewController.swift */,
-				25111ACC28A7583900FDF69E /* Main.storyboard */,
 				25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */,
 				25111AD428A7583C00FDF69E /* Info.plist */,
 				25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */,
@@ -144,10 +204,10 @@
 		25111AEA28A8301400FDF69E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				82BD75FC28B018BB00FFBFEF /* Person.swift */,
+				82BD75F828B018BA00FFBFEF /* UIColorOrPictureButton.swift */,
 				25111AEB28A8302200FDF69E /* SavedCard.swift */,
-				25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */,
 				25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */,
-				25AE6F7C28ABA5F900669767 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,14 +215,13 @@
 		25111AED28A8A21200FDF69E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				82BD75F528B018B900FFBFEF /* UIScreenExtension.swift */,
+				82BD75F928B018BA00FFBFEF /* UIColorExtension.swift */,
 				25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */,
-				25111B0128A9163500FDF69E /* UIScreenExtension.swift */,
-				25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-
 		4D5C838828A95F74005F01F8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +240,59 @@
 				4D5C839F28AABDB5005F01F8 /* GoogleService-Info.plist */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		82810EEB28B0239B005D8FC0 /* EnterPlayerName */ = {
+			isa = PBXGroup;
+			children = (
+				82810EEC28B0239B005D8FC0 /* EnterPlayerNameContainer.swift */,
+				82810EED28B0239B005D8FC0 /* EnterPlayerNameRouter.swift */,
+				82810EEE28B0239B005D8FC0 /* EnterPlayerNameViewController.swift */,
+				82810EEF28B0239B005D8FC0 /* EnterPlayerNameInteractor.swift */,
+				82810EF028B0239B005D8FC0 /* EnterPlayerNamePresenter.swift */,
+				82810EF128B0239B005D8FC0 /* EnterPlayerNameProtocols.swift */,
+			);
+			path = EnterPlayerName;
+			sourceTree = "<group>";
+		};
+		82BD75FF28B018BB00FFBFEF /* StartBrainStorm */ = {
+			isa = PBXGroup;
+			children = (
+				82BD760028B018BB00FFBFEF /* StartBrainStormViewController.swift */,
+				82BD760128B018BB00FFBFEF /* StartBrainStormContainer.swift */,
+				82BD760228B018BB00FFBFEF /* ThemeCell.swift */,
+				82BD760328B018BB00FFBFEF /* StartBrainStormRouter.swift */,
+				82BD760428B018BB00FFBFEF /* StartBrainStormPresenter.swift */,
+				82BD760528B018BB00FFBFEF /* StartBrainStormInteractor.swift */,
+				82BD760628B018BB00FFBFEF /* StartBrainStormProtocols.swift */,
+			);
+			path = StartBrainStorm;
+			sourceTree = "<group>";
+		};
+		82BD763328B01A8500FFBFEF /* OpenedCard */ = {
+			isa = PBXGroup;
+			children = (
+				82BD763428B01A8500FFBFEF /* OpenedCardViewController.swift */,
+				82BD763528B01A8500FFBFEF /* OpenedCardRouter.swift */,
+				82BD763628B01A8500FFBFEF /* OpenedCardPresenter.swift */,
+				82BD763728B01A8500FFBFEF /* OpenedCardProtocols.swift */,
+				82BD763828B01A8500FFBFEF /* OpenedCardContainer.swift */,
+				82BD763928B01A8500FFBFEF /* OpenedCardInteractor.swift */,
+			);
+			path = OpenedCard;
+			sourceTree = "<group>";
+		};
+		82BD764028B01F4900FFBFEF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				82BD764128B01F4900FFBFEF /* ProfilePresenter.swift */,
+				82BD764228B01F4900FFBFEF /* ProfileRouter.swift */,
+				82BD764328B01F4900FFBFEF /* ProfileProtocols.swift */,
+				82BD764428B01F4900FFBFEF /* ProfileViewController.swift */,
+				82BD764528B01F4900FFBFEF /* ProfileInteractor.swift */,
+				82BD764628B01F4900FFBFEF /* ProfileContainer.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		E04184E0AE9593375CBBE595 /* Frameworks */ = {
@@ -262,7 +374,7 @@
 				25111AD328A7583C00FDF69E /* LaunchScreen.storyboard in Resources */,
 				4D5C83A028AABDB5005F01F8 /* GoogleService-Info.plist in Resources */,
 				4D09CB6628AD277D00A8454B /* Assets.xcassets in Resources */,
-				25111ACE28A7583900FDF69E /* Main.storyboard in Resources */,
+				25111ACE28A7583900FDF69E /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,31 +427,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BD764828B01F4900FFBFEF /* ProfileRouter.swift in Sources */,
+				82BD762028B018BD00FFBFEF /* StartBrainStormContainer.swift in Sources */,
+				82BD762228B018BD00FFBFEF /* StartBrainStormRouter.swift in Sources */,
 				4D5C838A28AA2C26005F01F8 /* SignInViewController.swift in Sources */,
+				82BD764928B01F4900FFBFEF /* ProfileProtocols.swift in Sources */,
 				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
+				82810EF628B0239B005D8FC0 /* EnterPlayerNamePresenter.swift in Sources */,
+				82BD763C28B01A8600FFBFEF /* OpenedCardPresenter.swift in Sources */,
+				82BD762528B018BD00FFBFEF /* StartBrainStormProtocols.swift in Sources */,
+				82BD762328B018BD00FFBFEF /* StartBrainStormPresenter.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
-				25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */,
-				25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */,
-				25AE6F7B28AB559400669767 /* ThemeCell.swift in Sources */,
+				82BD764B28B01F4900FFBFEF /* ProfileInteractor.swift in Sources */,
+				82BD764C28B01F4900FFBFEF /* ProfileContainer.swift in Sources */,
+				82BD763B28B01A8600FFBFEF /* OpenedCardRouter.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				4D5C838C28AA2CAB005F01F8 /* SignInHeaderView.swift in Sources */,
 				4D5C839028AA2E21005F01F8 /* SignUpViewController.swift in Sources */,
+				82BD762428B018BD00FFBFEF /* StartBrainStormInteractor.swift in Sources */,
+				82BD763F28B01A8600FFBFEF /* OpenedCardInteractor.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
-				25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
+				82BD763D28B01A8600FFBFEF /* OpenedCardProtocols.swift in Sources */,
+				82BD761928B018BD00FFBFEF /* UIColorExtension.swift in Sources */,
+				82BD761528B018BD00FFBFEF /* UIScreenExtension.swift in Sources */,
+				82BD764A28B01F4900FFBFEF /* ProfileViewController.swift in Sources */,
+				82810EF228B0239B005D8FC0 /* EnterPlayerNameContainer.swift in Sources */,
+				82BD761C28B018BD00FFBFEF /* Person.swift in Sources */,
+				82810EF528B0239B005D8FC0 /* EnterPlayerNameInteractor.swift in Sources */,
+				82810EF328B0239B005D8FC0 /* EnterPlayerNameRouter.swift in Sources */,
+				82BD763A28B01A8600FFBFEF /* OpenedCardViewController.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
 				4D5C838E28AA2D65005F01F8 /* AuthManager.swift in Sources */,
 				25111AE528A7601600FDF69E /* SavedCardInteractor.swift in Sources */,
 				25111AF128A8A41C00FDF69E /* SavedCardTableViewCell.swift in Sources */,
 				25111AE628A7601600FDF69E /* SavedCardContainer.swift in Sources */,
+				82810EF428B0239B005D8FC0 /* EnterPlayerNameViewController.swift in Sources */,
+				82BD761828B018BD00FFBFEF /* UIColorOrPictureButton.swift in Sources */,
+				82BD761F28B018BD00FFBFEF /* StartBrainStormViewController.swift in Sources */,
 				4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */,
 				4D5C839228AA2EA1005F01F8 /* User.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
+				82810EF728B0239B005D8FC0 /* EnterPlayerNameProtocols.swift in Sources */,
+				82BD762128B018BD00FFBFEF /* ThemeCell.swift in Sources */,
+				82BD764728B01F4900FFBFEF /* ProfilePresenter.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
-				25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */,
-				25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */,
-				25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */,
+				82BD763E28B01A8600FFBFEF /* OpenedCardContainer.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

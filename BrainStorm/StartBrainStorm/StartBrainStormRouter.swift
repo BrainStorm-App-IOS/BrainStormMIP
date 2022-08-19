@@ -8,12 +8,16 @@
 
 import UIKit
 
-final class StartBrainStormRouter {
+final class StartBrainStormRouter: EnterPlayerNameModuleOutput {
     weak var viewController: UIViewController?
 }
 
 extension StartBrainStormRouter: StartBrainStormRouterInput {
-    func dismiss() {
-        viewController?.dismiss(animated: true)
+    func openEnterPlayerName(count: Int) {
+        let EnterPlayerNameContext = EnterPlayerNameContext(moduleOutput: self, count: count)
+        let EnterPlayerNameContainer = EnterPlayerNameContainer.assemble(with: EnterPlayerNameContext)
+        
+        MainNavigationController.navigationController.pushViewController(EnterPlayerNameContainer.viewController, animated: true)
+        
     }
 }

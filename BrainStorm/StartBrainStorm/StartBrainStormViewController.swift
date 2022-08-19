@@ -138,14 +138,14 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     }
     
     func setupNavigationBar() {
-        let configuration = UIImage.SymbolConfiguration(pointSize: 24)
-        let image = UIImage(systemName: "arrow.left.circle",  withConfiguration: configuration)?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        /*let configuration = UIImage.SymbolConfiguration(pointSize: 24)
+        //let image = UIImage(systemName: "arrow.left.circle",  withConfiguration: configuration)?.withTintColor(.black, renderingMode: .alwaysOriginal)
         let backBTN = UIBarButtonItem(image: image,
                                       style: .plain,
                                       target: navigationController,
                                       action: #selector(UINavigationController.popViewController(animated:)))
         navigationItem.leftBarButtonItem = backBTN
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self*/
     }
     
     func setupLine() {
@@ -228,12 +228,12 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     @objc
     func beginGame(){
         if let sendName = teamName {
-            output.startBrainStorm(name: sendName)
+            output.openEnterPlayerName(count: countOfPlayer)
             brainStormNameTextField.text = ""
         }
         
         else{
-            output.dismiss()
+            //output.dismiss()
             brainStormNameTextField.text = ""
         }
     }
