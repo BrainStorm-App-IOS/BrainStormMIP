@@ -24,6 +24,8 @@ final class SavedCardContainer {
         
         interactor.output = presenter
         
+        router.viewController = viewController
+        
         return SavedCardContainer(view: viewController, input: presenter, router: router)
     }
     
@@ -36,4 +38,5 @@ final class SavedCardContainer {
 
 struct SavedCardContext {
     weak var moduleOutput: SavedCardModuleOutput?
+    
 }

@@ -145,7 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				25111AEB28A8302200FDF69E /* SavedCard.swift */,
+				25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */,
 				25111AF028A8A41C00FDF69E /* SavedCardTableViewCell.swift */,
+				25AE6F7C28ABA5F900669767 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,10 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				25111AEE28A8A23C00FDF69E /* TableCellRegistrationExtension.swift */,
+				25111B0128A9163500FDF69E /* UIScreenExtension.swift */,
+				25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+
 		4D5C838828A95F74005F01F8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,10 +318,14 @@
 				4D5C838A28AA2C26005F01F8 /* SignInViewController.swift in Sources */,
 				25111AE128A7601600FDF69E /* SavedCardPresenter.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
+				25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */,
+				25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */,
+				25AE6F7B28AB559400669767 /* ThemeCell.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				4D5C838C28AA2CAB005F01F8 /* SignInHeaderView.swift in Sources */,
 				4D5C839028AA2E21005F01F8 /* SignUpViewController.swift in Sources */,
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
+				25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
@@ -328,6 +337,9 @@
 				4D5C839228AA2EA1005F01F8 /* User.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
+				25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */,
+				25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */,
+				25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */,
 				25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +347,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		25111ACC28A7583900FDF69E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25111ACD28A7583900FDF69E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -476,11 +480,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,11 +508,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

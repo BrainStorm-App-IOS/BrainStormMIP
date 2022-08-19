@@ -7,31 +7,35 @@
 
 import UIKit
 import PinLayout
+import SwiftUI
 
+struct MainNavigationController {
+    static var navigationController: UINavigationController = UINavigationController()
+}
 
 class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profile = ProfileSettingsViewController()
-        profile.title = "Профиль"
+        let profileSettings = ProfileSettingsViewController()
+        profileSettings.title = "Profile"
         
-        let savedCardContext = SavedCardContext(moduleOutput: self)
-        let savedCardContainer = SavedCardContainer.assemble(with: savedCardContext)
-        let savedCardNavigationController = UINavigationController(rootViewController: savedCardContainer.viewController)
+        let SavedCardContext = SavedCardContext(moduleOutput: self)
+        let SavedCardContainer = SavedCardContainer.assemble(with: SavedCardContext)
+        let SavedCardNavigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
         
-        savedCardNavigationController.tabBarItem.image = UIImage(systemName: "house")
-        profile.navigationItem.largeTitleDisplayMode = .always
-        let profileNavigationController = UINavigationController(rootViewController: profile)
-        savedCardNavigationController.navigationBar.prefersLargeTitles = true
-        profileNavigationController.navigationBar.prefersLargeTitles = true
-        savedCardNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 2)
+        MainNavigationController.navigationController = SavedCardNavigationController
+        //SavedCardNavigationController.navigationBar.prefersLargeTitles = true
+        SavedCardNavigationController.navigationBar.isHidden = true
         
+        SavedCardNavigationController.tabBarItem.image = UIImage(systemName: "brain")
+        profileSettings.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
-        tabBar.tintColor = .black
-        setViewControllers([savedCardNavigationController, profileNavigationController], animated: true)
+        setViewControllers([SavedCardNavigationController, profileSettings], animated: true)
+        tabBar.tintColor = Color.tapBarTincColor
+        
+        tabBar.unselectedItemTintColor = Color.defaultBlackAndWhiteColor
     }
 }
 

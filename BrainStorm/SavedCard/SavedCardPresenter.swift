@@ -15,18 +15,9 @@ final class SavedCardPresenter {
     private let router: SavedCardRouterInput
     private let interactor: SavedCardInteractorInput
     
-    private var savedCards: [SavedCard] = [SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384"),
-                                           SavedCard(brainStormName: "hello", brainStormDescription: "none"),
-                                           SavedCard(brainStormName: "jalejf", brainStormDescription: "sjepoeipjf"),
-                                           SavedCard(brainStormName: "394", brainStormDescription: "9384")]
+    private var savedCards: [SavedCard] = [SavedCard(brainStormName: "VK", brainStormDescription: "SDK", brainStormDate: "12.12.12"),
+                                           SavedCard(brainStormName: "Yandex", brainStormDescription: "Go", brainStormDate: "11.11.11"),
+                                           SavedCard(brainStormName: "Google", brainStormDescription: "Mobile", brainStormDate: "10.10.10")]
     
     init(router: SavedCardRouterInput, interactor: SavedCardInteractorInput) {
         self.router = router
@@ -38,6 +29,11 @@ extension SavedCardPresenter: SavedCardModuleInput {
 }
 
 extension SavedCardPresenter: SavedCardViewOutput {
+
+    func openBrainStromSettings() {
+        router.openBrainStormSettings(output: self)
+    }
+    
     func getCount() -> Int {
         return savedCards.count
     }
@@ -49,7 +45,26 @@ extension SavedCardPresenter: SavedCardViewOutput {
     func viewDidLoad() {
     }
     
+    func didTapCard(savedCard: SavedCard){
+        router.openCard(output: self, savedCard: savedCard)
+    }
+    
 }
 
 extension SavedCardPresenter: SavedCardInteractorOutput {
+}
+
+
+
+extension SavedCardPresenter: StartBrainStormModuleOutput{
+    func addCard(savedCard: SavedCard) {
+        savedCards.append(savedCard)
+        view?.reloadData()
+    }
+    
+}
+
+
+extension SavedCardPresenter: OpenedCardModuleOutput{
+    
 }
