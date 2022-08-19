@@ -110,11 +110,11 @@ private extension SavedCardViewController {
         static let startBrainStormButtonHight: CGFloat = 50
         static let startBrainStormButtonCornerRadius: CGFloat = 20
         static let startBrainStormButtonBorderWidth: CGFloat = 0
-        static let startBrainStormButtonY: CGFloat = UIScreen.screenHeight/2 +
-                                                     UIScreen.screenHeight/4 +
-                                                     UIScreen.screenHeight/8 -
-                                                     UIScreen.screenHeight/32 +
-                                                     UIScreen.screenHeight/64
+        static let startBrainStormButtonY: CGFloat = UIScreen.screenHeight/2
+                                                   + UIScreen.screenHeight/4
+                                                   + UIScreen.screenHeight/8
+                                                   - UIScreen.screenHeight/32
+                                                   + UIScreen.screenHeight/64
         
     }
 }

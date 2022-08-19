@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 final class SavedCardCollectionViewCell: UICollectionViewCell {
+    
+    //MARK: - defenition
+    
     private let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     private let desctiptionLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
     private let dateLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
@@ -24,12 +27,7 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
         setup()
     }
     
-    private func setup() {
-        setupCard()
-        setupDate()
-        setupTitle()
-        setupDescription()
-    }
+    //MARK: - layoutSubviews
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -46,6 +44,15 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
         desctiptionLabel.pin
             .bottom(15)
             .right(27)
+    }
+    
+    //MARK: - setup
+    
+    private func setup() {
+        setupCard()
+        setupDate()
+        setupTitle()
+        setupDescription()
     }
     
     func setupTitle(){

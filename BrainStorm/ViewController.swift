@@ -7,6 +7,11 @@
 
 import UIKit
 import PinLayout
+import SwiftUI
+
+struct MainNavigationController {
+    static var navigationController: UINavigationController = UINavigationController()
+}
 
 class TabBarController: UITabBarController {
 
@@ -20,6 +25,8 @@ class TabBarController: UITabBarController {
         let SavedCardContext = SavedCardContext(moduleOutput: self)
         let SavedCardContainer = SavedCardContainer.assemble(with: SavedCardContext)
         let SavedCardNavigationController = UINavigationController(rootViewController: SavedCardContainer.viewController)
+        
+        MainNavigationController.navigationController = SavedCardNavigationController
         //SavedCardNavigationController.navigationBar.prefersLargeTitles = true
         SavedCardNavigationController.navigationBar.isHidden = true
         
@@ -27,9 +34,10 @@ class TabBarController: UITabBarController {
         profileSettings.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
         setViewControllers([SavedCardNavigationController, profileSettings], animated: true)
-        tabBar.tintColor = .blue | .yellow
+        tabBar.tintColor = Color.tapBarTincColor
         
-        tabBar.unselectedItemTintColor = .black | .white
+        tabBar.unselectedItemTintColor = Color.defaultBlackAndWhiteColor
+    
     }
 }
 

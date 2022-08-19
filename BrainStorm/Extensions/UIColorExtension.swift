@@ -24,3 +24,13 @@ public extension UIColor {
         }
     }
 }
+
+
+
+struct Color{
+    static let tapBarTincColor: UIColor = .blue | .yellow
+    static let abBarUnselectedItemTintColor: UIColor = .black | .white
+    static let defaultBlackAndWhiteColor: UIColor = .black | .white
+    static let defaultWhiteAndBlackColor: UIColor = .white | .black
+    
+}

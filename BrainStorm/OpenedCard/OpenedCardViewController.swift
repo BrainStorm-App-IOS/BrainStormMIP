@@ -9,6 +9,8 @@
 import UIKit
 
 final class OpenedCardViewController: UIViewController {
+    
+    //MARK: - defenition
     private let output: OpenedCardViewOutput
     private let savedCard: SavedCard
     
@@ -35,6 +37,8 @@ final class OpenedCardViewController: UIViewController {
 }
 
 extension OpenedCardViewController {
+    
+    //MARK: - setup
     func setup(){
         view.addSubview(nameLabel)
         view.addSubview(DescriptionLabel)
@@ -42,6 +46,8 @@ extension OpenedCardViewController {
         
         view.backgroundColor = .blue
     }
+    
+    //MARK: - viewDidLayoutSubviews
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -58,6 +64,9 @@ extension OpenedCardViewController {
             .sizeToFit(.width)
     }
 }
+
+
+//MARK: - OpenedCardViewInput
 
 extension OpenedCardViewController: OpenedCardViewInput {
     func set(savedCard: SavedCard) {

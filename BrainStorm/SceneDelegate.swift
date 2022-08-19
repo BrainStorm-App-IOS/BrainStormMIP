@@ -53,19 +53,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
-enum Theme: String {
-    case light, dark, system
-
-    // Utility var to pass directly to window.overrideUserInterfaceStyle
-    var uiInterfaceStyle: UIUserInterfaceStyle {
-        switch self {
-        case .light:
-            return .dark
-        case .dark:
-            return .light
-        case .system:
-            return .unspecified
-        }
-    }
-}

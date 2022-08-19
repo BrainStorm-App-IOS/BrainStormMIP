@@ -30,15 +30,13 @@
 		25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */; };
 		25111B0028A8F31A00FDF69E /* StartBrainStormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */; };
 		25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111B0128A9163500FDF69E /* UIScreenExtension.swift */; };
-		254937A228ACA70500C38EFB /* MonsterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254937A128ACA70500C38EFB /* MonsterPicker.swift */; };
-		254937A428ACE49B00C38EFB /* MonstersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */; };
 		25AE6F7428AAA54A00669767 /* OpenedCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F6E28AAA54A00669767 /* OpenedCardPresenter.swift */; };
 		25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F6F28AAA54A00669767 /* OpenedCardRouter.swift */; };
 		25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7028AAA54A00669767 /* OpenedCardViewController.swift */; };
 		25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7128AAA54A00669767 /* OpenedCardProtocols.swift */; };
 		25AE6F7828AAA54A00669767 /* OpenedCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7228AAA54A00669767 /* OpenedCardInteractor.swift */; };
 		25AE6F7928AAA54A00669767 /* OpenedCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7328AAA54A00669767 /* OpenedCardContainer.swift */; };
-		25AE6F7B28AB559400669767 /* PlayersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7A28AB559400669767 /* PlayersCell.swift */; };
+		25AE6F7B28AB559400669767 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7A28AB559400669767 /* ThemeCell.swift */; };
 		25AE6F7D28ABA5F900669767 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7C28ABA5F900669767 /* Person.swift */; };
 		25AE6F7F28ABAAE900669767 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */; };
 		25BA42FE28A9383B00D0687F /* UIColorOrPictureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */; };
@@ -71,15 +69,13 @@
 		25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormInteractor.swift; sourceTree = "<group>"; };
 		25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBrainStormContainer.swift; sourceTree = "<group>"; };
 		25111B0128A9163500FDF69E /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
-		254937A128ACA70500C38EFB /* MonsterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPicker.swift; sourceTree = "<group>"; };
-		254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersCollectionViewCell.swift; sourceTree = "<group>"; };
 		25AE6F6E28AAA54A00669767 /* OpenedCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardPresenter.swift; sourceTree = "<group>"; };
 		25AE6F6F28AAA54A00669767 /* OpenedCardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardRouter.swift; sourceTree = "<group>"; };
 		25AE6F7028AAA54A00669767 /* OpenedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardViewController.swift; sourceTree = "<group>"; };
 		25AE6F7128AAA54A00669767 /* OpenedCardProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardProtocols.swift; sourceTree = "<group>"; };
 		25AE6F7228AAA54A00669767 /* OpenedCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardInteractor.swift; sourceTree = "<group>"; };
 		25AE6F7328AAA54A00669767 /* OpenedCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedCardContainer.swift; sourceTree = "<group>"; };
-		25AE6F7A28AB559400669767 /* PlayersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersCell.swift; sourceTree = "<group>"; };
+		25AE6F7A28AB559400669767 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		25AE6F7C28ABA5F900669767 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		25AE6F7E28ABAAE900669767 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		25BA42FD28A9383B00D0687F /* UIColorOrPictureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorOrPictureButton.swift; sourceTree = "<group>"; };
@@ -130,8 +126,6 @@
 				25111AD128A7583C00FDF69E /* LaunchScreen.storyboard */,
 				25111AD428A7583C00FDF69E /* Info.plist */,
 				25111AF228A8B11000FDF69E /* ProfileSettingsViewController.swift */,
-				254937A128ACA70500C38EFB /* MonsterPicker.swift */,
-				254937A328ACE49B00C38EFB /* MonstersCollectionViewCell.swift */,
 			);
 			path = BrainStorm;
 			sourceTree = "<group>";
@@ -180,7 +174,7 @@
 				25111AF828A8F31A00FDF69E /* StartBrainStormProtocols.swift */,
 				25111AF928A8F31A00FDF69E /* StartBrainStormInteractor.swift */,
 				25111AFA28A8F31A00FDF69E /* StartBrainStormContainer.swift */,
-				25AE6F7A28AB559400669767 /* PlayersCell.swift */,
+				25AE6F7A28AB559400669767 /* ThemeCell.swift */,
 			);
 			path = StartBrainStorm;
 			sourceTree = "<group>";
@@ -282,7 +276,7 @@
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
 				25AE6F7528AAA54A00669767 /* OpenedCardRouter.swift in Sources */,
 				25111AFB28A8F31A00FDF69E /* StartBrainStormPresenter.swift in Sources */,
-				25AE6F7B28AB559400669767 /* PlayersCell.swift in Sources */,
+				25AE6F7B28AB559400669767 /* ThemeCell.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				25111AFF28A8F31A00FDF69E /* StartBrainStormInteractor.swift in Sources */,
 				25111AFC28A8F31A00FDF69E /* StartBrainStormRouter.swift in Sources */,
@@ -292,7 +286,6 @@
 				25AE6F7728AAA54A00669767 /* OpenedCardProtocols.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
-				254937A228ACA70500C38EFB /* MonsterPicker.swift in Sources */,
 				25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */,
 				25111B0228A9163500FDF69E /* UIScreenExtension.swift in Sources */,
 				25AE6F7928AAA54A00669767 /* OpenedCardContainer.swift in Sources */,
@@ -304,7 +297,6 @@
 				25AE6F7428AAA54A00669767 /* OpenedCardPresenter.swift in Sources */,
 				25111AFD28A8F31A00FDF69E /* StartBrainStormViewController.swift in Sources */,
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
-				254937A428ACE49B00C38EFB /* MonstersCollectionViewCell.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
 				25111AFE28A8F31A00FDF69E /* StartBrainStormProtocols.swift in Sources */,
 				25AE6F7628AAA54A00669767 /* OpenedCardViewController.swift in Sources */,
@@ -448,7 +440,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -475,7 +467,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 57AUSRK5Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrainStorm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

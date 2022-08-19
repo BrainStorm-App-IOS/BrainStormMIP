@@ -23,7 +23,7 @@ protocol StartBrainStormViewInput: AnyObject {
 protocol StartBrainStormViewOutput: AnyObject {
     func viewDidLoad()
     
-    func send(name: String, description: String)
+    func startBrainStorm(name: String)
     
     func dismiss()
     

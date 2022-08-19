@@ -25,9 +25,9 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 }
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
-    func send(name: String, description: String) {
+    func startBrainStorm(name: String) {
         moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name,
-                                                   brainStormDescription: description,
+                                                   brainStormDescription: " ",
                                                    brainStormDate: getDateString()))
         router.dismiss()
         
