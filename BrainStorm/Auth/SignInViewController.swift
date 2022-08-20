@@ -33,7 +33,7 @@ class SignInViewController: UITabBarController {
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.placeholder = "Пароль"
-        //field.isSecureTextEntry = true
+        field.isSecureTextEntry = true
         field.backgroundColor = .secondarySystemBackground
         field.layer.cornerRadius = 8
         field.layer.masksToBounds = true
