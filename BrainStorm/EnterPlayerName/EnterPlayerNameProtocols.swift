@@ -30,4 +30,5 @@ protocol EnterPlayerNameInteractorOutput: AnyObject {
 
 protocol EnterPlayerNameRouterInput: AnyObject {
     func nextDisplay(cntPlayer: Int, presenter: EnterPlayerNameViewOutput) -> EnterPlayerNameViewInput
+    func openPlayerProblems()
 }

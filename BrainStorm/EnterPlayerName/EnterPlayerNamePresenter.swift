@@ -39,8 +39,9 @@ extension EnterPlayerNamePresenter: EnterPlayerNameViewOutput {
         currPlayer = MainNavigationController.navigationController.viewControllers.count - sizeOfStackAtStart
         print("Current player: \(currPlayer) name is \(name)")
         if (currPlayer == count) {
-            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
-            print("all players")
+//            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
+//            print("all players")
+            router.openPlayerProblems()
         } else {
             print("start stack size: \(sizeOfStackAtStart)")
             print("stack size: \(MainNavigationController.navigationController.viewControllers.count)")

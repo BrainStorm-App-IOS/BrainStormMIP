@@ -80,7 +80,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
         brainStormNameTextField.pin
             .size(CGSize(width: UIScreen.screenWidth - 2 * Const.textFieldSideIndentation,
                          height: Const.textFieldHight))
-            .top(view.pin.safeArea.top + 10)
+            .top(view.pin.safeArea.top)
             .hCenter()
         
         line.pin
@@ -111,13 +111,12 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     
         
         boxWithplayersCollectionView.pin
-            .size(CGSize(width: UIScreen.screenWidth, height: 550))
+            .size(CGSize(width: UIScreen.screenWidth, height: 520))
+            .verticallyBetween(chooseCountOfPeopleLable, and: brainStormBeginGameButton, aligned: .none)
             .left()
             .right()
             .marginTop(10)
-            .marginBottom(10)
-            .below(of: chooseCountOfPeopleLable)
-            .bottom()
+        
         themesCollectionView.pin.all()
     }
     
@@ -243,8 +242,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     @objc
     func openPicker(){
         let alert = UIAlertController(title: "", message:"\n\n\n\n\n\n", preferredStyle: .alert)
-        alert.isModalInPopover = true
-        
+
         let chooseCountOfPlayerPicker: UIPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 270, height: 140))
         
         chooseCountOfPlayerPicker.delegate = self
@@ -357,6 +355,9 @@ extension StartBrainStormViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if indexPath == currentTheme {
+            return
+        }
         if let cell = collectionView.cellForItem(at: indexPath) as? ThemeViewCell {
             cell.contentView.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
             cell.newLabelTextColor(color: .white)

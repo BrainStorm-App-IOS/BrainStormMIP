@@ -102,6 +102,8 @@ final class EnterPlayerNameViewController: UIViewController {
         view.addSubview(addButton)
     }
     
+    //MARK: objs function
+    
     @objc
     func pressedButton() {
         output.nextPlayer(name: nameField.text ?? "")
