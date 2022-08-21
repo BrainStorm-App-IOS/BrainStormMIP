@@ -13,6 +13,7 @@ protocol ProblemsIncr: AnyObject {
 }
 
 final class PlayerProblemsViewController: UIViewController {
+    
     private let output: PlayerProblemsViewOutput
     
     private var indexPathOfLastCell: IndexPath?
@@ -23,9 +24,13 @@ final class PlayerProblemsViewController: UIViewController {
     
     private let continueButton: UIButton = UIButton()
     
+    private var activeTextView: UITextView?
+    
+    private var active: CGFloat?
+    
     private var timer: Timer?
     
-    private var timeLeft: Int = 180
+    private var timeLeft: Int = 1000
     
     private let timeLabel: UILabel = UILabel()
     
@@ -38,22 +43,31 @@ final class PlayerProblemsViewController: UIViewController {
     }()
     
     private var countOfProblems: Int = 1
-
+    
     init(output: PlayerProblemsViewOutput) {
         self.output = output
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        view.addGestureRecognizer(tapGesture)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
         
         setup()
     }
@@ -64,11 +78,6 @@ final class PlayerProblemsViewController: UIViewController {
                          height: 40))
             .top(view.pin.safeArea.top)
             .left(20)
-        
-        timeLabel.pin
-            .size(CGSize(width: 30, height: 30))
-            .after(of: themeLabel)
-            .margin(20)
         
         descriptionLabel.pin
             .size(CGSize(width: view.width - 40, height: 80))
@@ -161,14 +170,18 @@ final class PlayerProblemsViewController: UIViewController {
         
     }
     
+    @objc
+    func tap(gesture: UITapGestureRecognizer) {
+        ProblemCell.problemCell?.problemTextView.resignFirstResponder()
+    }
+    
     @objc func onTimerFires() {
         timeLeft -= 1
         timeLabel.text = "\(timeLeft)"
-     
+        
         if timeLeft <= 0 {
             timer?.invalidate()
             timer = nil
-            print("end")
             showAlert()
             
             
@@ -176,9 +189,9 @@ final class PlayerProblemsViewController: UIViewController {
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: "time is over", message:"", preferredStyle: .alert)
-
-        let action = UIAlertAction(title: "Далее", style: .default) { _ in
+        let alert = UIAlertController(title: "time is over", message:"Передайте телефон следующему игроку", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Начать", style: .default) { _ in
             self.output.openNextScreen()
         }
         alert.addAction(action)
@@ -225,7 +238,7 @@ extension PlayerProblemsViewController: UICollectionViewDelegate, UICollectionVi
         }
         
         let cell = problemsCollectionView.dequeueReusableCell(ProblemCell.self, for: indexPath)
-        cell.configure(number: indexPath.row)
+        cell.configure(number: indexPath.row, index: indexPath.row)
         
         return cell
     }
@@ -274,7 +287,32 @@ extension PlayerProblemsViewController: ProblemsIncr {
     }
 }
 
+
+
 extension PlayerProblemsViewController: PlayerProblemsViewInput {
 }
 
+
+extension PlayerProblemsViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                if ProblemCell.isOpen < 3 {
+                    self.view.frame.origin.y += (view.bounds.height - keyboardSize.height - 700)
+                }
+                else {
+                    self.view.frame.origin.y += (view.bounds.height - keyboardSize.height - 840)
+                }
+                
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}
 

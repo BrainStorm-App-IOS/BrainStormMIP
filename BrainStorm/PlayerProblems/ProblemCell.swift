@@ -11,7 +11,13 @@ import UIKit
 
 final class ProblemCell: UICollectionViewCell {
     
-    private let problemTextView: UITextView = UITextView()
+    static var isOpen: Int = 0
+    
+    static var problemCell: ProblemCell?
+    
+    let problemTextView: UITextView = UITextView()
+    
+    private var index: Int!
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -35,6 +41,7 @@ final class ProblemCell: UICollectionViewCell {
     }
     
     private func setupProblemTextView() {
+        problemTextView.delegate = self
         problemTextView.layer.cornerRadius = 15
         problemTextView.textContainer.lineBreakMode = .byWordWrapping
         problemTextView.backgroundColor = .none
@@ -51,7 +58,7 @@ final class ProblemCell: UICollectionViewCell {
             .all()
     }
     
-    func configure(number: Int, text: String = ""){
+    func configure(number: Int, index: Int, text: String = ""){
         defer {
             setNeedsLayout()
         }
@@ -59,7 +66,25 @@ final class ProblemCell: UICollectionViewCell {
             problemTextView.text = text
         }
         
+        self.index = index
+        
         contentView.backgroundColor = ColorsForCards.colors[number]
         
+    }
+}
+
+
+extension ProblemCell: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        ProblemCell.isOpen = index
+        ProblemCell.problemCell = self
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

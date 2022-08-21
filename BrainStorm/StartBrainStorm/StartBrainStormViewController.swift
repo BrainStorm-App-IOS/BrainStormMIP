@@ -232,7 +232,6 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
         }
         
         else{
-            //output.dismiss()
             brainStormNameTextField.text = ""
         }
     }
