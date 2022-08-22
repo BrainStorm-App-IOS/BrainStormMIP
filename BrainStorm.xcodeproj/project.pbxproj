@@ -15,6 +15,9 @@
 		155C381428B0DE6300ED0F01 /* DiscussionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C380E28B0DE6300ED0F01 /* DiscussionContainer.swift */; };
 		155C386D28B3586000ED0F01 /* ProblemDiscussionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C386C28B3586000ED0F01 /* ProblemDiscussionCell.swift */; };
 		155C386F28B3591C00ED0F01 /* ColorsForCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C386E28B3591C00ED0F01 /* ColorsForCards.swift */; };
+		155C387428B364C300ED0F01 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387328B364C300ED0F01 /* GameModel.swift */; };
+		155C387628B3653200ED0F01 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387528B3653200ED0F01 /* PersonModel.swift */; };
+		155C387828B3654000ED0F01 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387728B3654000ED0F01 /* ResultModel.swift */; };
 		25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC628A7583900FDF69E /* AppDelegate.swift */; };
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
@@ -81,6 +84,9 @@
 		155C380E28B0DE6300ED0F01 /* DiscussionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionContainer.swift; sourceTree = "<group>"; };
 		155C386C28B3586000ED0F01 /* ProblemDiscussionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDiscussionCell.swift; sourceTree = "<group>"; };
 		155C386E28B3591C00ED0F01 /* ColorsForCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsForCards.swift; sourceTree = "<group>"; };
+		155C387328B364C300ED0F01 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		155C387528B3653200ED0F01 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		155C387728B3654000ED0F01 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		25111AC328A7583900FDF69E /* BrainStorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainStorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25111AC628A7583900FDF69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +174,16 @@
 			path = Discussion;
 			sourceTree = "<group>";
 		};
+		155C387228B3649900ED0F01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				155C387328B364C300ED0F01 /* GameModel.swift */,
+				155C387528B3653200ED0F01 /* PersonModel.swift */,
+				155C387728B3654000ED0F01 /* ResultModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		168777789A816B591CA04C9B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +215,7 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
+				155C387228B3649900ED0F01 /* Models */,
 				155C381528B0DE6D00ED0F01 /* Discussion */,
 				82810EEB28B0239B005D8FC0 /* EnterPlayerName */,
 				82BD764028B01F4900FFBFEF /* Profile */,
@@ -477,6 +494,7 @@
 				155C381228B0DE6300ED0F01 /* DiscussionProtocols.swift in Sources */,
 				82BD764B28B01F4900FFBFEF /* ProfileInteractor.swift in Sources */,
 				82BD764C28B01F4900FFBFEF /* ProfileContainer.swift in Sources */,
+				155C387628B3653200ED0F01 /* PersonModel.swift in Sources */,
 				82BD763B28B01A8600FFBFEF /* OpenedCardRouter.swift in Sources */,
 				25111AEF28A8A23C00FDF69E /* TableCellRegistrationExtension.swift in Sources */,
 				4D5C838C28AA2CAB005F01F8 /* SignInHeaderView.swift in Sources */,
@@ -488,6 +506,7 @@
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
 				82BD763D28B01A8600FFBFEF /* OpenedCardProtocols.swift in Sources */,
 				82BD761928B018BD00FFBFEF /* UIColorExtension.swift in Sources */,
+				155C387428B364C300ED0F01 /* GameModel.swift in Sources */,
 				82BD761528B018BD00FFBFEF /* UIScreenExtension.swift in Sources */,
 				82BD764A28B01F4900FFBFEF /* ProfileViewController.swift in Sources */,
 				82810EF228B0239B005D8FC0 /* EnterPlayerNameContainer.swift in Sources */,
@@ -510,6 +529,7 @@
 				25111AE428A7601600FDF69E /* SavedCardProtocols.swift in Sources */,
 				82810EF728B0239B005D8FC0 /* EnterPlayerNameProtocols.swift in Sources */,
 				82BD762128B018BD00FFBFEF /* ThemeCell.swift in Sources */,
+				155C387828B3654000ED0F01 /* ResultModel.swift in Sources */,
 				155C380F28B0DE6300ED0F01 /* DiscussionPresenter.swift in Sources */,
 				82BD764728B01F4900FFBFEF /* ProfilePresenter.swift in Sources */,
 				25111AE228A7601600FDF69E /* SavedCardRouter.swift in Sources */,
