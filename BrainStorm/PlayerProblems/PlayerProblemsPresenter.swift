@@ -26,6 +26,7 @@ extension PlayerProblemsPresenter: PlayerProblemsModuleInput {
 
 extension PlayerProblemsPresenter: PlayerProblemsViewOutput {
     func openNextScreen() {
+        router.openNextScreen()
     }
     
 }

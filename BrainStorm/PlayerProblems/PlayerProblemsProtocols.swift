@@ -30,4 +30,5 @@ protocol PlayerProblemsInteractorOutput: AnyObject {
 }
 
 protocol PlayerProblemsRouterInput: AnyObject {
+    func openNextScreen()
 }

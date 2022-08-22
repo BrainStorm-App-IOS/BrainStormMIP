@@ -167,7 +167,7 @@ final class PlayerProblemsViewController: UIViewController {
     
     @objc
     func nextField() {
-        
+        output.openNextScreen()
     }
     
     @objc
