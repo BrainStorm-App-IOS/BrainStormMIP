@@ -21,11 +21,13 @@ final class EnterPlayerNamePresenter {
     private let count: Int
     private let sizeOfStackAtStart: Int
     private var currPlayer = 1
+    private var names: [String]
     
     init(router: EnterPlayerNameRouterInput, interactor: EnterPlayerNameInteractorInput, count: Int) {
         self.router = router
         self.interactor = interactor
         self.count = count
+        names = [String](repeating: "", count: count)
         sizeOfStackAtStart = MainNavigationController.navigationController.viewControllers.count
     }
     
@@ -38,9 +40,11 @@ extension EnterPlayerNamePresenter: EnterPlayerNameViewOutput {
     func nextPlayer(name: String) {
         currPlayer = MainNavigationController.navigationController.viewControllers.count - sizeOfStackAtStart
         print("Current player: \(currPlayer) name is \(name)")
+        names[currPlayer - 1] = name
         if (currPlayer == count) {
             MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
             print("all players")
+            router.nextModule(names: names)
         } else {
             print("start stack size: \(sizeOfStackAtStart)")
             print("stack size: \(MainNavigationController.navigationController.viewControllers.count)")

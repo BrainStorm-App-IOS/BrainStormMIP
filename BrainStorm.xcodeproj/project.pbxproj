@@ -13,6 +13,8 @@
 		155C381228B0DE6300ED0F01 /* DiscussionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C380C28B0DE6300ED0F01 /* DiscussionProtocols.swift */; };
 		155C381328B0DE6300ED0F01 /* DiscussionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C380D28B0DE6300ED0F01 /* DiscussionInteractor.swift */; };
 		155C381428B0DE6300ED0F01 /* DiscussionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C380E28B0DE6300ED0F01 /* DiscussionContainer.swift */; };
+		155C386D28B3586000ED0F01 /* ProblemDiscussionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C386C28B3586000ED0F01 /* ProblemDiscussionCell.swift */; };
+		155C386F28B3591C00ED0F01 /* ColorsForCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C386E28B3591C00ED0F01 /* ColorsForCards.swift */; };
 		25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC628A7583900FDF69E /* AppDelegate.swift */; };
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
@@ -77,6 +79,8 @@
 		155C380C28B0DE6300ED0F01 /* DiscussionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionProtocols.swift; sourceTree = "<group>"; };
 		155C380D28B0DE6300ED0F01 /* DiscussionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionInteractor.swift; sourceTree = "<group>"; };
 		155C380E28B0DE6300ED0F01 /* DiscussionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionContainer.swift; sourceTree = "<group>"; };
+		155C386C28B3586000ED0F01 /* ProblemDiscussionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDiscussionCell.swift; sourceTree = "<group>"; };
+		155C386E28B3591C00ED0F01 /* ColorsForCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsForCards.swift; sourceTree = "<group>"; };
 		25111AC328A7583900FDF69E /* BrainStorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainStorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25111AC628A7583900FDF69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				155C380C28B0DE6300ED0F01 /* DiscussionProtocols.swift */,
 				155C380D28B0DE6300ED0F01 /* DiscussionInteractor.swift */,
 				155C380E28B0DE6300ED0F01 /* DiscussionContainer.swift */,
+				155C386C28B3586000ED0F01 /* ProblemDiscussionCell.swift */,
+				155C386E28B3591C00ED0F01 /* ColorsForCards.swift */,
 			);
 			path = Discussion;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				82BD762528B018BD00FFBFEF /* StartBrainStormProtocols.swift in Sources */,
 				82BD762328B018BD00FFBFEF /* StartBrainStormPresenter.swift in Sources */,
 				155C381328B0DE6300ED0F01 /* DiscussionInteractor.swift in Sources */,
+				155C386F28B3591C00ED0F01 /* ColorsForCards.swift in Sources */,
 				25111AEC28A8302300FDF69E /* SavedCard.swift in Sources */,
 				155C381228B0DE6300ED0F01 /* DiscussionProtocols.swift in Sources */,
 				82BD764B28B01F4900FFBFEF /* ProfileInteractor.swift in Sources */,
@@ -496,6 +503,7 @@
 				82810EF428B0239B005D8FC0 /* EnterPlayerNameViewController.swift in Sources */,
 				82BD761828B018BD00FFBFEF /* UIColorOrPictureButton.swift in Sources */,
 				82BD761F28B018BD00FFBFEF /* StartBrainStormViewController.swift in Sources */,
+				155C386D28B3586000ED0F01 /* ProblemDiscussionCell.swift in Sources */,
 				155C381428B0DE6300ED0F01 /* DiscussionContainer.swift in Sources */,
 				4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */,
 				4D5C839228AA2EA1005F01F8 /* User.swift in Sources */,

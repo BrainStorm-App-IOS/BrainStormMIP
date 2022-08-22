@@ -3,7 +3,7 @@
 //  BrainStorm
 //
 //  Created by Андрей Лосюков on 20.08.2022.
-//  
+//
 //
 
 import Foundation
@@ -17,6 +17,24 @@ final class DiscussionPresenter {
     private let teamName : String
     private let theme : String
     private let countOfPlayers : Int
+    
+    var getTeamName: String {
+        get {
+            return teamName
+        }
+    }
+    
+    var getTheme: String {
+        get {
+            return theme
+        }
+    }
+    
+    var getCountOfPlayers: Int {
+        get {
+            return countOfPlayers
+        }
+    }
     
     init(router: DiscussionRouterInput, interactor: DiscussionInteractorInput, teamName: String, theme: String, countOfPlayers : Int) {
         self.router = router

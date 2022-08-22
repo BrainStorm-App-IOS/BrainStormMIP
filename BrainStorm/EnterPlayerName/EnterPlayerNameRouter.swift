@@ -13,6 +13,10 @@ final class EnterPlayerNameRouter {
 }
 
 extension EnterPlayerNameRouter: EnterPlayerNameRouterInput {
+    func nextModule(names: [String]) {
+        // to do
+    }
+    
     func nextDisplay(cntPlayer: Int, presenter: EnterPlayerNameViewOutput) -> EnterPlayerNameViewInput {
         let view = EnterPlayerNameViewController(output: presenter, currPlayer: cntPlayer)
         MainNavigationController.navigationController.pushViewController(view, animated: true)
