@@ -18,6 +18,11 @@
 		155C387428B364C300ED0F01 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387328B364C300ED0F01 /* GameModel.swift */; };
 		155C387628B3653200ED0F01 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387528B3653200ED0F01 /* PersonModel.swift */; };
 		155C387828B3654000ED0F01 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387728B3654000ED0F01 /* ResultModel.swift */; };
+		155C387C28B37DB500ED0F01 /* GameNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387B28B37DB500ED0F01 /* GameNetwork.swift */; };
+		155C387E28B37DC000ED0F01 /* PersonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387D28B37DC000ED0F01 /* PersonParser.swift */; };
+		155C388028B37DD100ED0F01 /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C387F28B37DD100ED0F01 /* ResultParser.swift */; };
+		155C388228B3B91B00ED0F01 /* GameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C388128B3B91B00ED0F01 /* GameParser.swift */; };
+		155C388428B3BDAC00ED0F01 /* GameNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C388328B3BDAC00ED0F01 /* GameNetworkErrors.swift */; };
 		25111AC728A7583900FDF69E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC628A7583900FDF69E /* AppDelegate.swift */; };
 		25111AC928A7583900FDF69E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111AC828A7583900FDF69E /* SceneDelegate.swift */; };
 		25111ACB28A7583900FDF69E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25111ACA28A7583900FDF69E /* ViewController.swift */; };
@@ -87,6 +92,11 @@
 		155C387328B364C300ED0F01 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		155C387528B3653200ED0F01 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		155C387728B3654000ED0F01 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		155C387B28B37DB500ED0F01 /* GameNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetwork.swift; sourceTree = "<group>"; };
+		155C387D28B37DC000ED0F01 /* PersonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonParser.swift; sourceTree = "<group>"; };
+		155C387F28B37DD100ED0F01 /* ResultParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
+		155C388128B3B91B00ED0F01 /* GameParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParser.swift; sourceTree = "<group>"; };
+		155C388328B3BDAC00ED0F01 /* GameNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworkErrors.swift; sourceTree = "<group>"; };
 		25111AC328A7583900FDF69E /* BrainStorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainStorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25111AC628A7583900FDF69E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25111AC828A7583900FDF69E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,14 +184,35 @@
 			path = Discussion;
 			sourceTree = "<group>";
 		};
-		155C387228B3649900ED0F01 /* Models */ = {
+		155C387228B3649900ED0F01 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				155C387328B364C300ED0F01 /* GameModel.swift */,
-				155C387528B3653200ED0F01 /* PersonModel.swift */,
+				155C387B28B37DB500ED0F01 /* GameNetwork.swift */,
+				155C387A28B37DA400ED0F01 /* Parsers */,
+				155C387928B37C6800ED0F01 /* Models */,
+				155C388328B3BDAC00ED0F01 /* GameNetworkErrors.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		155C387928B37C6800ED0F01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				155C387728B3654000ED0F01 /* ResultModel.swift */,
+				155C387528B3653200ED0F01 /* PersonModel.swift */,
+				155C387328B364C300ED0F01 /* GameModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		155C387A28B37DA400ED0F01 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				155C387D28B37DC000ED0F01 /* PersonParser.swift */,
+				155C387F28B37DD100ED0F01 /* ResultParser.swift */,
+				155C388128B3B91B00ED0F01 /* GameParser.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		168777789A816B591CA04C9B /* Pods */ = {
@@ -215,7 +246,7 @@
 		25111AC528A7583900FDF69E /* BrainStorm */ = {
 			isa = PBXGroup;
 			children = (
-				155C387228B3649900ED0F01 /* Models */,
+				155C387228B3649900ED0F01 /* NetworkManager */,
 				155C381528B0DE6D00ED0F01 /* Discussion */,
 				82810EEB28B0239B005D8FC0 /* EnterPlayerName */,
 				82BD764028B01F4900FFBFEF /* Profile */,
@@ -485,6 +516,7 @@
 				82810EF628B0239B005D8FC0 /* EnterPlayerNamePresenter.swift in Sources */,
 				82BD763C28B01A8600FFBFEF /* OpenedCardPresenter.swift in Sources */,
 				155C381028B0DE6300ED0F01 /* DiscussionRouter.swift in Sources */,
+				155C388028B37DD100ED0F01 /* ResultParser.swift in Sources */,
 				155C381128B0DE6300ED0F01 /* DiscussionViewController.swift in Sources */,
 				82BD762528B018BD00FFBFEF /* StartBrainStormProtocols.swift in Sources */,
 				82BD762328B018BD00FFBFEF /* StartBrainStormPresenter.swift in Sources */,
@@ -504,12 +536,15 @@
 				25111ACB28A7583900FDF69E /* ViewController.swift in Sources */,
 				25111AF328A8B11000FDF69E /* ProfileSettingsViewController.swift in Sources */,
 				25111AE328A7601600FDF69E /* SavedCardViewController.swift in Sources */,
+				155C387C28B37DB500ED0F01 /* GameNetwork.swift in Sources */,
 				82BD763D28B01A8600FFBFEF /* OpenedCardProtocols.swift in Sources */,
 				82BD761928B018BD00FFBFEF /* UIColorExtension.swift in Sources */,
 				155C387428B364C300ED0F01 /* GameModel.swift in Sources */,
 				82BD761528B018BD00FFBFEF /* UIScreenExtension.swift in Sources */,
+				155C387E28B37DC000ED0F01 /* PersonParser.swift in Sources */,
 				82BD764A28B01F4900FFBFEF /* ProfileViewController.swift in Sources */,
 				82810EF228B0239B005D8FC0 /* EnterPlayerNameContainer.swift in Sources */,
+				155C388428B3BDAC00ED0F01 /* GameNetworkErrors.swift in Sources */,
 				82BD761C28B018BD00FFBFEF /* Person.swift in Sources */,
 				82810EF528B0239B005D8FC0 /* EnterPlayerNameInteractor.swift in Sources */,
 				82810EF328B0239B005D8FC0 /* EnterPlayerNameRouter.swift in Sources */,
@@ -522,6 +557,7 @@
 				82810EF428B0239B005D8FC0 /* EnterPlayerNameViewController.swift in Sources */,
 				82BD761828B018BD00FFBFEF /* UIColorOrPictureButton.swift in Sources */,
 				82BD761F28B018BD00FFBFEF /* StartBrainStormViewController.swift in Sources */,
+				155C388228B3B91B00ED0F01 /* GameParser.swift in Sources */,
 				155C386D28B3586000ED0F01 /* ProblemDiscussionCell.swift in Sources */,
 				155C381428B0DE6300ED0F01 /* DiscussionContainer.swift in Sources */,
 				4D5C839428AA696A005F01F8 /* DatabaseManager.swift in Sources */,

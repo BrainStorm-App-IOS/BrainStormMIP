@@ -13,7 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        GameNetwork.createGameOnFirebase(game: GameModel(end: false, name: "Andrey", countOfPersons: 4, persons: [PersonModel(name: "anmamn", pickedProblem: "AFaf", solution: "afaef", writtenProblems: ["adad,", "afaefaf", "afeafae"])], results: [ResultModel(problem: "AFFAEAEF", solution: "AFEAEFAEFAEFAEF", rating: 10)], stage: 2, stoppedPerson: 3, theme: "fsfsf", timer: 1000, date:  "11022002"))
         
+        GameNetwork.fetchAllGameOfCurrentUser()
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
@@ -55,6 +57,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
 
     }
-
-
 }
