@@ -13,8 +13,8 @@ final class StartBrainStormRouter: EnterPlayerNameModuleOutput {
 }
 
 extension StartBrainStormRouter: StartBrainStormRouterInput {
-    func openEnterPlayerName(count: Int) {
-        let EnterPlayerNameContext = EnterPlayerNameContext(moduleOutput: self, count: count)
+    func openEnterPlayerName(game: GameModel) {
+        let EnterPlayerNameContext = EnterPlayerNameContext(moduleOutput: self, game: game)
         let EnterPlayerNameContainer = EnterPlayerNameContainer.assemble(with: EnterPlayerNameContext)
         
         MainNavigationController.navigationController.pushViewController(EnterPlayerNameContainer.viewController, animated: true)

@@ -18,6 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
+        self.window = window
+        
         // TODO: Update VC to sign in VC if not
         let vc: UIViewController
         if AuthManager.shared.isSignedIn {
@@ -31,9 +33,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             vc = navVc
             
         }
+        
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

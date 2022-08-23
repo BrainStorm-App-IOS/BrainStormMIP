@@ -11,14 +11,14 @@ import UIKit
 final class EnterPlayerNameViewController: UIViewController {
     private let output: EnterPlayerNameViewOutput
     private let currPlayer: Int
-
+    
     init(output: EnterPlayerNameViewOutput, currPlayer: Int) {
         self.output = output
         self.currPlayer = currPlayer
-
+        
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,9 +102,19 @@ final class EnterPlayerNameViewController: UIViewController {
         view.addSubview(addButton)
     }
     
+    //MARK: objs function
+    
     @objc
     func pressedButton() {
-        output.nextPlayer(name: nameField.text ?? "")
+        if let name = nameField.text {
+            if name != "" {
+                output.addPerson(name: name)
+                output.nextPlayer()
+            }
+            
+            else {
+            }
+        }
     }
     
     @objc

@@ -14,10 +14,12 @@ final class StartBrainStormPresenter {
     
     private let router: StartBrainStormRouterInput
     private let interactor: StartBrainStormInteractorInput
+    private var game: GameModel
     
-    init(router: StartBrainStormRouterInput, interactor: StartBrainStormInteractorInput) {
+    init(router: StartBrainStormRouterInput, interactor: StartBrainStormInteractorInput, game: GameModel) {
         self.router = router
         self.interactor = interactor
+        self.game = game
     }
 }
 
@@ -25,21 +27,25 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 }
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
-    func openEnterPlayerName(count: Int) {
-        router.openEnterPlayerName(count: count)
-    }
-    
-    func startBrainStorm(name: String) {
-        moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name,
-                                                   brainStormDescription: " ",
-                                                   brainStormDate: getDateString()))
-        
+    func openEnterPlayerName() {
+        router.openEnterPlayerName(game: game)
     }
     
     func viewDidLoad() {
         
     }
     
+    func setTheme(theme: String) {
+        game.theme = theme
+    }
+    
+    func setCountOfPlayers(countOfPlayers: Int) {
+        game.countOfPlayers = countOfPlayers
+    }
+    
+    func setTeamName(teamName: String) {
+        game.name = teamName
+    }
     
     func getDateString() -> String {
         let date = Date()

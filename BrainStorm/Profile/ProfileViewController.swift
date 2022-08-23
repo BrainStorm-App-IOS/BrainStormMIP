@@ -86,7 +86,7 @@ extension ProfileViewController {
     }
     
     func setupLabelsView() {
-        self.title = "Профиль"
+        navigationItem.title = "Профиль"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title:"Выйти",
             style: .done,

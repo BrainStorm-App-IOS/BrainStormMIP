@@ -24,7 +24,7 @@ extension SavedCardRouter: SavedCardRouterInput {
     }
     
     func openBrainStormSettings(output: StartBrainStormModuleOutput){
-        let startBrainStormContext = StartBrainStormContext(moduleOutput: output)
+        let startBrainStormContext = StartBrainStormContext(moduleOutput: output, game: GameModel())
         let startBrainStormContainer = StartBrainStormContainer.assemble(with: startBrainStormContext)
         
         startBrainStormContainer.viewController.hidesBottomBarWhenPushed = true

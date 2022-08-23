@@ -63,6 +63,14 @@ class SignUpViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Регистрация"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        view.addGestureRecognizer(tapGesture)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         view.backgroundColor = .systemBackground
         view.addSubview(headerView)
         view.addSubview(emailField)
@@ -112,6 +120,31 @@ class SignUpViewController: UITabBarController {
             } else {
                 print("Ошибка при создании аккаунта")
             }
+        }
+    }
+    
+    @objc
+    func tap(gesture: UITapGestureRecognizer) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        nameField.resignFirstResponder()
+    }
+}
+
+
+extension SignUpViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += (view.bounds.height - keyboardSize.height - 700)
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
         }
     }
 }

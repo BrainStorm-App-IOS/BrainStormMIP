@@ -31,7 +31,6 @@ extension SavedCardPresenter: SavedCardModuleInput {
 extension SavedCardPresenter: SavedCardViewOutput {
 
     func openBrainStromSettings() {
-        print("hello")
         router.openBrainStormSettings(output: self)
     }
     
