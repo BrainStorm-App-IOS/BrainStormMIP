@@ -11,6 +11,8 @@ import UIKit
 
 final class ProblemCell: UICollectionViewCell {
     
+    weak private var output: PlayerProblemsViewOutput?
+    
     static var isOpen: Int = 0
     
     static var problemCell: ProblemCell?
@@ -58,13 +60,12 @@ final class ProblemCell: UICollectionViewCell {
             .all()
     }
     
-    func configure(number: Int, index: Int, text: String = ""){
+    func configure(number: Int, index: Int, output: PlayerProblemsViewOutput, text: String = ""){
         defer {
             setNeedsLayout()
         }
-        if text != "" {
-            problemTextView.text = text
-        }
+        self.output = output
+        problemTextView.text = text
         
         self.index = index
         
@@ -78,6 +79,10 @@ extension ProblemCell: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         ProblemCell.isOpen = index
         ProblemCell.problemCell = self
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        output?.rewriteProblem(at: index, write: textView.text)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

@@ -20,6 +20,10 @@ protocol TeammateCardSolutionViewInput: AnyObject {
 
 protocol TeammateCardSolutionViewOutput: AnyObject {
     func openNextScreen(solution: String)
+    
+    func getPersonName() -> String
+    
+    func getProblem() -> String
 }
 
 protocol TeammateCardSolutionInteractorInput: AnyObject {
@@ -29,5 +33,5 @@ protocol TeammateCardSolutionInteractorOutput: AnyObject {
 }
 
 protocol TeammateCardSolutionRouterInput: AnyObject {
-    func openNextScreen(cards: [(String, String, String)])
+    func openNextScreen(game: GameModel)
 }

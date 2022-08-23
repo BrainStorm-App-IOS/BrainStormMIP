@@ -12,11 +12,24 @@ final class PlayerProblemsRouter {
 }
 
 extension PlayerProblemsRouter: PlayerProblemsRouterInput {
-    func openNextScreen() {
-        let DiscussionContext = DiscussionContext(moduleOutput: self, teamName: "Team", theme: "Math", countOfPlayers: 6)
+    func openDiscussion(game: GameModel) {
+        let DiscussionContext = DiscussionContext(moduleOutput: self, game: game)
         let DiscussionContainer = DiscussionContainer.assemble(with: DiscussionContext)
         
         MainNavigationController.navigationController.pushViewController(DiscussionContainer.viewController, animated: true)
+    }
+    
+    func openNextScreen() {
+//        let DiscussionContext = DiscussionContext(moduleOutput: self, teamName: "Team", theme: "Math", countOfPlayers: 6)
+//        let DiscussionContainer = DiscussionContainer.assemble(with: DiscussionContext)
+//        
+//        MainNavigationController.navigationController.pushViewController(DiscussionContainer.viewController, animated: true)
+    }
+    
+    func nextDisplay(presenter: PlayerProblemsViewOutput) -> PlayerProblemsViewInput {
+        let view = PlayerProblemsViewController(output: presenter)
+        MainNavigationController.navigationController.pushViewController(view, animated: true)
+        return view
     }
     
 }

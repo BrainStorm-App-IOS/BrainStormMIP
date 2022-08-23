@@ -17,6 +17,8 @@ final class DiscussionViewController: UIViewController {
     
     private let timeLabel: UILabel = UILabel()
     
+    private var problems: [String] = []
+    
     private let themeLabel: UILabel = UILabel()
     private let themesCollectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
@@ -32,6 +34,8 @@ final class DiscussionViewController: UIViewController {
     init(output: DiscussionViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
+        
+        problems = output.getProblems().shuffled()
     }
     
     @available(*, unavailable)
@@ -64,6 +68,9 @@ final class DiscussionViewController: UIViewController {
         themesCollectionView.dataSource = self
         themesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         themesCollectionView.register(ProblemDiscussionCell.self)
+        
+        ProblemDiscussionCell.count = output.getCountOfProblems()
+        
         view.addSubview(themesCollectionView)
     }
     
@@ -75,6 +82,9 @@ final class DiscussionViewController: UIViewController {
     
     @objc
     func nextField() {
+        for index in ProblemDiscussionCell.tappedCells {
+            output.addProblem(problem: problems[index])
+        }
         output.openNextField()
     }
     
@@ -85,7 +95,6 @@ final class DiscussionViewController: UIViewController {
         if timeLeft <= 0 {
             timer?.invalidate()
             timer = nil
-            print("end")
             showAlert()
             
             
@@ -116,7 +125,7 @@ final class DiscussionViewController: UIViewController {
     func setupDescriptionLabel() {
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "*название команды*, обсудите информацию на стикерах и выберите *число участников* заметок для перехода на следующий этап"
+        descriptionLabel.text = "\(output.getTeamName()), обсудите информацию на стикерах и выберите \(output.getCountOfProblems()) заметок для перехода на следующий этап"
         
         view.addSubview(descriptionLabel)
     }
@@ -132,7 +141,7 @@ final class DiscussionViewController: UIViewController {
     }
     
     func setupThemeLabel() {
-        themeLabel.text = "Астрология"
+        themeLabel.text = output.getTheme()
         themeLabel.font = .systemFont(ofSize: 40, weight: UIFont.Weight(rawValue: 1))
         themeLabel.textColor = .black
         
@@ -190,13 +199,12 @@ private extension DiscussionViewController {
 
 extension DiscussionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return problems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(indexPath.row)
         let cell = themesCollectionView.dequeueReusableCell(ProblemDiscussionCell.self, for: indexPath)
-        cell.configure(number: indexPath.row)
+        cell.configure(number: indexPath.row, text: problems[indexPath.row], problemAlert: self)
         return cell
     }
     
@@ -216,31 +224,6 @@ extension DiscussionViewController: UICollectionViewDelegate, UICollectionViewDa
                      right: Const.textFieldSideIndentation)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? ProblemDiscussionCell {
-            if (currentTapped.contains(indexPath)) {
-                cell.removeCheck()
-                currentTapped.remove(indexPath)
-                return
-            }
-            
-            if currentTapped.count == 6 {
-                
-                let alert = UIAlertController(title: "time is over", message:"", preferredStyle: .alert)
-                
-                let action = UIAlertAction(title: "Далее", style: .cancel)
-                alert.addAction(action)
-                self.present(alert, animated: true)
-                return
-            }
-            
-            cell.addCheck()
-        }
-        currentTapped.insert(indexPath)
-    }
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -256,9 +239,17 @@ extension DiscussionViewController: UICollectionViewDelegate, UICollectionViewDa
     
 }
 
-extension DiscussionViewController{
+
+extension DiscussionViewController: ProblemAlert {
+    func showCanselAlert() {
+        let alert = UIAlertController(title: "time is over", message:"", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Далее", style: .cancel)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
     func reloadData(){
         themesCollectionView.reloadData()
     }
 }
-

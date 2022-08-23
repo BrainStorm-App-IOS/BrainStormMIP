@@ -23,11 +23,15 @@ protocol StartBrainStormViewInput: AnyObject {
 protocol StartBrainStormViewOutput: AnyObject {
     func viewDidLoad()
     
-    func startBrainStorm(name: String)
-    
-    func openEnterPlayerName(count: Int)
+    func openEnterPlayerName()
     
     func getDateString() -> String
+    
+    func setTheme(theme: String)
+    
+    func setCountOfPlayers(countOfPlayers: Int)
+    
+    func setTeamName(teamName: String) 
 }
 
 protocol StartBrainStormInteractorInput: AnyObject {
@@ -37,5 +41,5 @@ protocol StartBrainStormInteractorOutput: AnyObject {
 }
 
 protocol StartBrainStormRouterInput: AnyObject {
-    func openEnterPlayerName(count: Int)
+    func openEnterPlayerName(game: GameModel)
 }

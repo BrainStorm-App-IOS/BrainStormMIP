@@ -20,12 +20,10 @@ class SliderViewController: UIViewController {
     // 0 - name
     // 1 - problem
     // 2 - solution
-    var cardsData: [(String, String, String)]
-    var names: [String]
+    var game: GameModel
     
-    init(cardsData: [(String, String, String)], names: [String]) {
-        self.cardsData = cardsData
-        self.names = names
+    init(game: GameModel) {
+        self.game = game
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,7 +36,7 @@ class SliderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: true)
         
         self.navigationItem.largeTitleDisplayMode = .never
         //navigationB.prefersLargeTitles = false
@@ -49,8 +47,8 @@ class SliderViewController: UIViewController {
         // 1. create a deck of cards
         // 20 cards for demonstrational purposes - once the cards run out, just re-run the project to start over
         // of course, you could always add new cards to self.cards and call layoutCards() again
-        for index in 0..<cardsData.count {
-            let card = ImageCard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height * 0.7), info: cardsData[index])
+        for index in 0..<game.countOfPlayers {
+            let card = ImageCard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height * 0.7), info: (game.persons[index].name, game.results[index].problem, game.results[index].solution))
             cards.append(card)
         }
         

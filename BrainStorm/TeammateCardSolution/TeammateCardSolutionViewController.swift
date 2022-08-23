@@ -19,9 +19,9 @@ final class TeammateCardSolutionViewController: UIViewController {
     let nextButton = UIButton()
     private let infoCard: (String, String)
 
-    init(output: TeammateCardSolutionViewOutput, card: (String, String)) {
+    init(output: TeammateCardSolutionViewOutput) {
         self.output = output
-        self.infoCard = card
+        self.infoCard = (output.getPersonName(), output.getProblem())
         
         super.init(nibName: nil, bundle: nil)
     }

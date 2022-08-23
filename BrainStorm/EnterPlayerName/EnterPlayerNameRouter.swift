@@ -13,8 +13,8 @@ final class EnterPlayerNameRouter {
 }
 
 extension EnterPlayerNameRouter: EnterPlayerNameRouterInput {
-    func openPlayerProblems() {
-        let PlayerProblemsContext = PlayerProblemsContext(moduleOutput: self)
+    func openPlayerProblems(game: GameModel) {
+        let PlayerProblemsContext = PlayerProblemsContext(moduleOutput: self, game: game)
         let PlayerProblemsContainer = PlayerProblemsContainer.assemble(with: PlayerProblemsContext)
         
         MainNavigationController.navigationController.pushViewController(PlayerProblemsContainer.viewController, animated: true)

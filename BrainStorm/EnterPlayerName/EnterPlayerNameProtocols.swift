@@ -19,7 +19,10 @@ protocol EnterPlayerNameViewInput: AnyObject {
 }
 
 protocol EnterPlayerNameViewOutput: AnyObject {
-    func nextPlayer(name: String)
+    
+    func nextPlayer()
+    
+    func addPerson(name: String)
 }
 
 protocol EnterPlayerNameInteractorInput: AnyObject {
@@ -30,5 +33,5 @@ protocol EnterPlayerNameInteractorOutput: AnyObject {
 
 protocol EnterPlayerNameRouterInput: AnyObject {
     func nextDisplay(cntPlayer: Int, presenter: EnterPlayerNameViewOutput) -> EnterPlayerNameViewInput
-    func openPlayerProblems()
+    func openPlayerProblems(game: GameModel)
 }

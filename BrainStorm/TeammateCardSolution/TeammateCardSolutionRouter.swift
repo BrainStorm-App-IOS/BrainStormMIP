@@ -12,11 +12,8 @@ final class TeammateCardSolutionRouter {
 }
 
 extension TeammateCardSolutionRouter: TeammateCardSolutionRouterInput {
-    func openNextScreen(cards: [(String, String, String)]) {
-        
-        let names = ["Кирилл", "Олег", "Паша"]
-        
-        MainNavigationController.navigationController.pushViewController(SliderViewController(cardsData: cards, names: names), animated: true)
+    func openNextScreen(game: GameModel) {
+        MainNavigationController.navigationController.pushViewController(SliderViewController(game: game), animated: true)
     }
     
 }

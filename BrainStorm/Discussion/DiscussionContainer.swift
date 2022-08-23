@@ -16,7 +16,7 @@ final class DiscussionContainer {
     class func assemble(with context: DiscussionContext) -> DiscussionContainer {
         let router = DiscussionRouter()
         let interactor = DiscussionInteractor()
-        let presenter = DiscussionPresenter(router: router, interactor: interactor, teamName: context.teamName, theme: context.theme, countOfPlayers: context.countOfPlayers)
+        let presenter = DiscussionPresenter(router: router, interactor: interactor, game: context.game)
         let viewController = DiscussionViewController(output: presenter)
         
         presenter.view = viewController
@@ -37,8 +37,6 @@ final class DiscussionContainer {
 struct DiscussionContext {
     weak var moduleOutput: DiscussionModuleOutput?
     
-    let teamName : String
-    let theme : String
-    let countOfPlayers : Int
+    var game: GameModel
     
 }

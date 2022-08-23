@@ -9,6 +9,6 @@ import Foundation
 
 struct ResultModel {
     var problem : String
-    var solution : String
-    var rating : Int
+    var solution : String!
+    var rating : Int = 0
 }

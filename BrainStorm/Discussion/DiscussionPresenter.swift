@@ -14,34 +14,13 @@ final class DiscussionPresenter {
     
     private let router: DiscussionRouterInput
     private let interactor: DiscussionInteractorInput
-    private let teamName : String
-    private let theme : String
-    private let countOfPlayers : Int
     
-    var getTeamName: String {
-        get {
-            return teamName
-        }
-    }
+    private var game: GameModel
     
-    var getTheme: String {
-        get {
-            return theme
-        }
-    }
-    
-    var getCountOfPlayers: Int {
-        get {
-            return countOfPlayers
-        }
-    }
-    
-    init(router: DiscussionRouterInput, interactor: DiscussionInteractorInput, teamName: String, theme: String, countOfPlayers : Int) {
+    init(router: DiscussionRouterInput, interactor: DiscussionInteractorInput, game: GameModel) {
         self.router = router
         self.interactor = interactor
-        self.teamName = teamName
-        self.theme = theme
-        self.countOfPlayers = countOfPlayers
+        self.game = game
     }
 }
 
@@ -49,8 +28,38 @@ extension DiscussionPresenter: DiscussionModuleInput {
 }
 
 extension DiscussionPresenter: DiscussionViewOutput {
+    func addProblem(problem: String) {
+        game.results.append(ResultModel(problem: problem))
+    }
+    
+    func getTeamName() -> String {
+        return game.name
+    }
+    
+    func getProblems() -> [String] {
+        var problems: [String] = []
+        for person in game.persons {
+            for problem in person.writtenProblems {
+                if problem != "" {
+                    problems.append(problem)
+                }
+            }
+        }
+        
+        return problems
+    }
+    
+    func getTheme() -> String {
+        return game.theme
+    }
+    
+    func getCountOfProblems() -> Int {
+        return game.countOfPlayers
+    }
+    
     func openNextField() {
-        router.openNextField()
+        game.results = game.results.shuffled()
+        router.openNextField(game: game)
     }
     
 }

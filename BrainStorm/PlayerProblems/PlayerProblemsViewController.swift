@@ -117,7 +117,7 @@ final class PlayerProblemsViewController: UIViewController {
     }
     
     func setupThemeLabel() {
-        themeLabel.text = "Астрология"
+        themeLabel.text = output.getTheme()
         themeLabel.font = .systemFont(ofSize: 40, weight: UIFont.Weight(rawValue: 1))
         themeLabel.textColor = .black
         
@@ -127,7 +127,7 @@ final class PlayerProblemsViewController: UIViewController {
     func setupDescriptionLabel() {
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "Биба, какие проблемы Вы видите в выбранной теме, или что бы Вы хотели улучшить/привнести?"
+        descriptionLabel.text = "\(output.getName()), какие проблемы Вы видите в выбранной теме, или что бы Вы хотели улучшить/привнести?"
         
         view.addSubview(descriptionLabel)
     }
@@ -167,7 +167,7 @@ final class PlayerProblemsViewController: UIViewController {
     
     @objc
     func nextField() {
-        output.openNextScreen()
+        output.nextPlayer()
     }
     
     @objc
@@ -237,8 +237,16 @@ extension PlayerProblemsViewController: UICollectionViewDelegate, UICollectionVi
             return cell
         }
         
+        else if indexPath.row <= output.getCountofProblems() - 1 {
+            let cell = problemsCollectionView.dequeueReusableCell(ProblemCell.self, for: indexPath)
+            cell.configure(number: indexPath.row, index: indexPath.row, output: output, text: output.getProblem(at: indexPath.row))
+            return cell
+            
+        }
+        
         let cell = problemsCollectionView.dequeueReusableCell(ProblemCell.self, for: indexPath)
-        cell.configure(number: indexPath.row, index: indexPath.row)
+        cell.configure(number: indexPath.row, index: indexPath.row, output: output)
+        output.addProblems()
         
         return cell
     }

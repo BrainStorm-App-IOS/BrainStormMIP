@@ -8,10 +8,27 @@
 import Foundation
 import UIKit
 
-final class ProblemDiscussionCell: UICollectionViewCell {
+protocol ProblemAlert: AnyObject {
+    func showCanselAlert()
+    func reloadData()
+}
+
+final class ProblemDiscussionCell: UICollectionViewCell{
     
-//    private let problemTextView: UITextView = UITextView()
-    private var checkView = UIImageView()
+    static var tappedCells: Set<Int> = []
+    
+    weak var view: ProblemAlert?
+    
+    private var color: UIColor?
+    
+    private let problemTextView: UITextView = UITextView()
+    private var checkView = UIView()
+    
+    private var isChoosenView: UIView = UIView()
+    
+    private var index: Int?
+    
+    static var count: Int?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,56 +42,109 @@ final class ProblemDiscussionCell: UICollectionViewCell {
     
     private func setup() {
         setupCard()
-//        setupProblemTextView()
+        setupProblemTextView()
+        setupIsChoosenView()
     }
     
+    private func setupIsChoosenView() {
+        isChoosenView.layer.cornerRadius = 20
+        isChoosenView.layer.borderWidth = 2
+        
+        checkView.layer.cornerRadius = 15
+        checkView.backgroundColor = .black
+        
+        isChoosenView.addSubview(checkView)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        isChoosenView.addGestureRecognizer(tapRecognizer)
+        tapRecognizer.delegate = self
+        
+        contentView.addSubview(isChoosenView)
+    }
     private func setupCard() {
+        
+        contentView.isUserInteractionEnabled = true
         contentView.layer.cornerRadius = 15
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0
     }
     
-//    private func setupProblemTextView() {
-//        problemTextView.layer.cornerRadius = 15
-//        problemTextView.textContainer.lineBreakMode = .byWordWrapping
-//        problemTextView.backgroundColor = .none
-//
-//        contentView.addSubview(problemTextView)
-//    }
-//
+    private func setupProblemTextView() {
+        problemTextView.isEditable = false
+        problemTextView.layer.cornerRadius = 20
+        problemTextView.textContainer.lineBreakMode = .byWordWrapping
+        problemTextView.backgroundColor = .none
+        
+        contentView.addSubview(problemTextView)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        problemTextView.pin
-//            .width(contentView.width)
-//            .height(contentView.height)
-//            .all()
+        isChoosenView.pin
+            .size(CGSize(width: 40, height: 40))
+            .top(5)
+            .right(5)
+        
         checkView.pin
-            .all(20)
+            .size(CGSize(width: 30, height: 30))
+            .center()
+        
+        
+        problemTextView.pin
+            .width(contentView.width)
+            .height(contentView.height)
+            .top()
+            .left()
+        
+        problemTextView.textContainer.exclusionPaths = [UIBezierPath(rect: isChoosenView.frame)]
     }
     
-    func addCheck() {
-        let check = UIImage(systemName: "checkmark")!
-        checkView = UIImageView(image: check)
-        contentView.addSubview(checkView)
-        layoutSubviews()
-    }
-    
-    func removeCheck() {
-        checkView.removeFromSuperview()
-        layoutSubviews()
-    }
-    
-    func configure(number: Int, text: String = ""){
+    func configure(number: Int, text: String, problemAlert: ProblemAlert){
         defer {
             setNeedsLayout()
         }
-//        if text != "" {
-//            problemTextView.text = text
-//        }
-//
-        contentView.backgroundColor = ColorsForCards.colors[number%8]
+        color = ColorsForCards.colors[number % 8]
+        self.index = number
         
+        self.view = problemAlert
+        
+        problemTextView.text = text
+        
+        if ProblemDiscussionCell.tappedCells.contains(index!) {
+            checkView.backgroundColor = .black
+        }
+        
+        else {
+            checkView.backgroundColor = color
+        }
+            
+        contentView.backgroundColor = color
+        isChoosenView.backgroundColor = color
+        
+    }
+    
+    @objc
+    func tapped(gestureRecognizer: UITapGestureRecognizer) {
+        if ProblemDiscussionCell.tappedCells.contains(index!) {
+            checkView.backgroundColor = isChoosenView.backgroundColor
+            ProblemDiscussionCell.tappedCells.remove(index!)
+        }
+        else {
+            if ProblemDiscussionCell.tappedCells.count == ProblemDiscussionCell.count! {
+                view?.showCanselAlert()
+            }
+            
+            else {
+                checkView.backgroundColor = .black
+                ProblemDiscussionCell.tappedCells.insert(index!)
+            }
+            
+        }
     }
 }
 
+
+extension ProblemDiscussionCell: UIGestureRecognizerDelegate {
+    
+}

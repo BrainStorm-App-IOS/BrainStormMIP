@@ -20,6 +20,16 @@ protocol DiscussionViewInput: AnyObject {
 
 protocol DiscussionViewOutput: AnyObject {
     func openNextField()
+    
+    func getTeamName() -> String
+    
+    func getProblems() -> [String]
+    
+    func getTheme() -> String
+    
+    func getCountOfProblems() -> Int
+    
+    func addProblem(problem: String) 
 }
 
 protocol DiscussionInteractorInput: AnyObject {
@@ -29,5 +39,5 @@ protocol DiscussionInteractorOutput: AnyObject {
 }
 
 protocol DiscussionRouterInput: AnyObject {
-    func openNextField()
+    func openNextField(game: GameModel)
 }

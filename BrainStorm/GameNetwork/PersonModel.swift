@@ -9,7 +9,7 @@ import Foundation
 
 struct PersonModel {
     var name : String
-    var pickedProblem : String
+    var pickedProblem : String?
     var solution : String?
-    var writtenProblems : [String]
+    var writtenProblems : [String] = []
 }

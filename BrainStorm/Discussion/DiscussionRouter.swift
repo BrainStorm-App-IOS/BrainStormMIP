@@ -12,12 +12,8 @@ final class DiscussionRouter {
 }
 
 extension DiscussionRouter: DiscussionRouterInput {
-    func openNextField() {
-        let TeammateCardSolutionContext = TeammateCardSolutionContext(moduleOutput: self, cards: [("aalje","a;len"),
-                                                                                                  ("aalje","a;len"),
-                                                                                                  ("aalje","a;len"),
-                                                                                                  ("aalje","a;len"),
-                                                                                                  ("aalje","a;len")])
+    func openNextField(game: GameModel) {
+        let TeammateCardSolutionContext = TeammateCardSolutionContext(moduleOutput: self, game: game)
         let TeammateCardSolutionContainer = TeammateCardSolutionContainer.assemble(with: TeammateCardSolutionContext)
         
         MainNavigationController.navigationController.pushViewController(TeammateCardSolutionContainer.viewController, animated: true)

@@ -17,7 +17,7 @@ final class StartBrainStormContainer {
     class func assemble(with context: StartBrainStormContext) -> StartBrainStormContainer {
         let router = StartBrainStormRouter()
         let interactor = StartBrainStormInteractor()
-        let presenter = StartBrainStormPresenter(router: router, interactor: interactor)
+        let presenter = StartBrainStormPresenter(router: router, interactor: interactor, game: context.game)
         let viewController = StartBrainStormViewController(output: presenter)
         
         presenter.view = viewController
@@ -39,4 +39,5 @@ final class StartBrainStormContainer {
 
 struct StartBrainStormContext {
     weak var moduleOutput: StartBrainStormModuleOutput?
+    var game: GameModel
 }

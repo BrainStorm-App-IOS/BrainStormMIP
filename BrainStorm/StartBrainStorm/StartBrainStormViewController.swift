@@ -24,7 +24,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     
     private let output: StartBrainStormViewOutput
     
-    private var countOfPlayer: Int = 0
+    private var countOfPlayers: Int = 0
     
     private let openPickerButton: UIColorButton = UIColorButton(pressedColor: UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1),
                                                                 notPressedColor: .white)
@@ -167,7 +167,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     }
     
     func setupOpenPickerButton(){
-        openPickerButton.setTitle("\(countOfPlayer)", for: .normal)
+        openPickerButton.setTitle("\(countOfPlayers)", for: .normal)
         openPickerButton.setTitleColor(.black, for: .normal)
         openPickerButton.backgroundColor = .white
         openPickerButton.layer.cornerRadius = 10
@@ -226,9 +226,18 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     
     @objc
     func beginGame(){
-        if let sendName = teamName {
-            output.openEnterPlayerName(count: countOfPlayer)
-            brainStormNameTextField.text = ""
+        if let teamName = brainStormNameTextField.text {
+            if let themeNumber = currentTheme?.row {
+                output.setTheme(theme: themes[themeNumber])
+            }
+            
+            if teamName != "" {
+                output.setTeamName(teamName: teamName)
+            }
+            
+            output.setCountOfPlayers(countOfPlayers: countOfPlayers)
+        
+            output.openEnterPlayerName()
         }
         
         else{
@@ -317,8 +326,8 @@ extension StartBrainStormViewController: UIPickerViewDelegate{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        countOfPlayer = row
-        openPickerButton.setTitle("\(countOfPlayer)", for: .normal)
+        countOfPlayers = row
+        openPickerButton.setTitle("\(countOfPlayers)", for: .normal)
     }
 }
 
