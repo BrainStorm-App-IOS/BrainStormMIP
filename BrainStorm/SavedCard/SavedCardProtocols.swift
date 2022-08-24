@@ -20,25 +20,41 @@ protocol SavedCardViewInput: AnyObject {
 }
 
 protocol SavedCardViewOutput: AnyObject {
+    
+    func continueGame(at index: Int)
+    
     func viewDidLoad()
     
-    func getItem(in index: Int) -> SavedCard
+    func getItem(in index: Int) -> GameModel
     
     func getCount() -> Int
     
     func openBrainStromSettings()
     
-    func didTapCard(savedCard: SavedCard)
+    func didTapCard(savedCard: GameModel)
 }
 
 protocol SavedCardInteractorInput: AnyObject {
+    func getAllGames()
+    
+    func updateGamesonFirebase(game: GameModel)
+    
+    func saveGame(game: GameModel)
 }
 
 protocol SavedCardInteractorOutput: AnyObject {
+    func didObtain(games: [GameModel])
+    
+    func didFail(with error: Error)
+    
+    func updateGamesonFirebase(game: GameModel)
+    
+    func saveGame(game: GameModel)
+    
 }
 
 protocol SavedCardRouterInput: AnyObject {
     func openBrainStormSettings(output: StartBrainStormModuleOutput)
     
-    func openCard(output: OpenedCardModuleOutput, savedCard: SavedCard)
+    func openCard(output: OpenedCardModuleOutput, savedCard: GameModel)
 }

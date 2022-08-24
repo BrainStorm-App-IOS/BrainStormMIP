@@ -35,4 +35,6 @@ struct Color{
     
     static let defaltBlue: UIColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
     
+    static let defaultGray: UIColor = UIColor(red: 0.09804, green: 0.09804, blue: 0.10588, alpha: 1)
+    
 }

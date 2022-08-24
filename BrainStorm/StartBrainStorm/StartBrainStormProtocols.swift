@@ -14,7 +14,7 @@ protocol StartBrainStormModuleInput {
 
 protocol StartBrainStormModuleOutput: AnyObject {
     
-    func addCard(savedCard: SavedCard)
+    func addCard(savedCard: GameModel)
 }
 
 protocol StartBrainStormViewInput: AnyObject {
@@ -35,6 +35,7 @@ protocol StartBrainStormViewOutput: AnyObject {
 }
 
 protocol StartBrainStormInteractorInput: AnyObject {
+    func saveGame(game: GameModel)
 }
 
 protocol StartBrainStormInteractorOutput: AnyObject {

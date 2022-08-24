@@ -43,7 +43,7 @@ final class ThemeViewCell: UICollectionViewCell{
         contentView.layer.cornerRadius = 15
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0
-        contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1)
+        contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1) | Color.defaultGray
     }
     
     func newLabelTextColor(color: UIColor){

@@ -16,7 +16,10 @@ final class TeammateCardSolutionContainer {
     class func assemble(with context: TeammateCardSolutionContext) -> TeammateCardSolutionContainer {
         let router = TeammateCardSolutionRouter()
         let interactor = TeammateCardSolutionInteractor()
-        let presenter = TeammateCardSolutionPresenter(router: router, interactor: interactor, game: context.game)
+        var presenter = TeammateCardSolutionPresenter(router: router, interactor: interactor, game: context.game)
+        if let index = context.currInd {
+            presenter = TeammateCardSolutionPresenter(router: router, interactor: interactor, game: context.game, currCardInd: index)
+        }
         let viewController = TeammateCardSolutionViewController(output: presenter)
         
         presenter.view = viewController
@@ -37,4 +40,5 @@ final class TeammateCardSolutionContainer {
 struct TeammateCardSolutionContext {
     weak var moduleOutput: TeammateCardSolutionModuleOutput?
     var game: GameModel
+    var currInd: Int?
 }

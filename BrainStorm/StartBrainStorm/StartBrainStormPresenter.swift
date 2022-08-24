@@ -20,6 +20,8 @@ final class StartBrainStormPresenter {
         self.router = router
         self.interactor = interactor
         self.game = game
+        
+        self.game.end = false
     }
 }
 
@@ -28,6 +30,8 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
     func openEnterPlayerName() {
+        game.date = getDateString()
+        saveGame()
         router.openEnterPlayerName(game: game)
     }
     
@@ -39,8 +43,12 @@ extension StartBrainStormPresenter: StartBrainStormViewOutput {
         game.theme = theme
     }
     
+    func saveGame() {
+        interactor.saveGame(game: game)
+    }
+    
     func setCountOfPlayers(countOfPlayers: Int) {
-        game.countOfPlayers = countOfPlayers
+        game.countOfPersons = countOfPlayers
     }
     
     func setTeamName(teamName: String) {
@@ -53,7 +61,7 @@ extension StartBrainStormPresenter: StartBrainStormViewOutput {
         let day = calendar.component(.day, from:  date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        
+
         return "\(day).\(month).\(year)"
     }
     

@@ -33,9 +33,9 @@ class TabBarController: UITabBarController, ProfileModuleOutput {
         ProfileContainer.viewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
         setViewControllers([MainNavigationController.navigationController,ProfileNavigationController], animated: true)
-        tabBar.tintColor = Color.defaltBlue | .yellow
+        tabBar.tintColor = Color.defaltBlue | .white
         
-        tabBar.unselectedItemTintColor = .black | .white
+        tabBar.unselectedItemTintColor = .black | Color.defaultGray
     }
 }
 

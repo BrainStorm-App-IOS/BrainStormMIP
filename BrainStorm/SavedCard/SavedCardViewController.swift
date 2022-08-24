@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct Refresh {
+    static var confirm: Bool = false
+}
+
 final class SavedCardViewController: UIViewController {
     private let output: SavedCardViewOutput
     
@@ -21,11 +25,11 @@ final class SavedCardViewController: UIViewController {
     private var startBrainStormButton: UIImageButton = UIImageButton(pressedImage: UIImage(systemName: "bolt.fill")!.withTintColor(.white),
                                                                      notPressedImage: UIImage(systemName:"plus")!)
     
-
+    
     
     init(output: SavedCardViewOutput) {
         self.output = output
-    
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,6 +47,14 @@ final class SavedCardViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Refresh.confirm {
+            output.viewDidLoad()
+            Refresh.confirm = false
+            return
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -58,6 +70,7 @@ final class SavedCardViewController: UIViewController {
         savedCardsCollectionView.dataSource = self
         savedCardsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         savedCardsCollectionView.register(SavedCardCollectionViewCell.self)
+        savedCardsCollectionView.register(ContinueCollectionViewCell.self)
         
         
         view.addSubview(savedCardsCollectionView)
@@ -65,11 +78,12 @@ final class SavedCardViewController: UIViewController {
     }
     
     func setupStartBrainStormButton(){
-        startBrainStormButton.setTitle("Start BrainStorm", for: .normal)
+        startBrainStormButton.setTitle("Начать брейншторм", for: .normal)
         startBrainStormButton.setImage(UIImage(systemName: "plus"), for: .normal)
         startBrainStormButton.frame.size = CGSize(width: Const.startBrainStormButtonWidth,
                                                   height: Const.startBrainStormButtonHight)
         startBrainStormButton.backgroundColor = Color.defaltBlue | .white
+        startBrainStormButton.setTitleColor(.gray, for: .highlighted)
         startBrainStormButton.tintColor = .white | .black
         startBrainStormButton.setTitleColor(.white | .black, for: .normal)
         startBrainStormButton.layer.cornerRadius = Const.startBrainStormButtonCornerRadius
@@ -83,7 +97,7 @@ final class SavedCardViewController: UIViewController {
     
     func setup(){
         
-        navigationItem.title = "BrainStorm"
+        navigationItem.title = "Ваши Идеи"
         
         setupSavedCardsCollectionView()
         setupStartBrainStormButton()
@@ -103,23 +117,26 @@ final class SavedCardViewController: UIViewController {
 
 private extension SavedCardViewController {
     struct Const{
-        static let cellHight: CGFloat = 180
-        static let cellOffset: CGFloat = 20
+        static let cellHight: CGFloat = 80
+        static let cellOffset: CGFloat = 15
         static let cellSideIndentation: CGFloat = 8
         static let startBrainStormButtonWidth: CGFloat = UIScreen.screenWidth/2 + UIScreen.screenWidth/4
         static let startBrainStormButtonHight: CGFloat = 50
         static let startBrainStormButtonCornerRadius: CGFloat = 20
         static let startBrainStormButtonBorderWidth: CGFloat = 0
         static let startBrainStormButtonY: CGFloat = UIScreen.screenHeight/2
-                                                   + UIScreen.screenHeight/4
-                                                   + UIScreen.screenHeight/8
-                                                   - UIScreen.screenHeight/32
-                                                   + UIScreen.screenHeight/64
+        + UIScreen.screenHeight/4
+        + UIScreen.screenHeight/8
+        - UIScreen.screenHeight/32
+        + UIScreen.screenHeight/64
         
     }
 }
 
 extension SavedCardViewController: SavedCardViewInput {
+    func reloadData() {
+        savedCardsCollectionView.reloadData()
+    }
 }
 
 extension SavedCardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -128,9 +145,17 @@ extension SavedCardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let finish = output.getItem(in: indexPath.row).end {
+            if !finish {
+                let cell = savedCardsCollectionView.dequeueReusableCell(ContinueCollectionViewCell.self, for: indexPath)
+                cell.configure(with: output.getItem(in: indexPath.row))
+                
+                return cell
+            }
+        }
         let cell = savedCardsCollectionView.dequeueReusableCell(SavedCardCollectionViewCell.self, for: indexPath)
         cell.configure(with: output.getItem(in: indexPath.row))
-        
         
         return cell
     }
@@ -139,7 +164,7 @@ extension SavedCardViewController: UICollectionViewDelegate, UICollectionViewDat
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = collectionView.frame.width - 2 * Const.cellSideIndentation
+        let cellWidth = collectionView.frame.width - 2 * Const.cellSideIndentation - 2 * Const.cellOffset
         
         return .init(width: cellWidth, height: Const.cellHight)
     }
@@ -152,26 +177,24 @@ extension SavedCardViewController: UICollectionViewDelegate, UICollectionViewDat
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return Const.cellOffset
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
-        return Const.cellOffset
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        output.didTapCard(savedCard: SavedCard(brainStormName: output.getItem(in: indexPath.row).brainStormName,
-                                               brainStormDescription: output.getItem(in: indexPath.row).brainStormDescription,
-                                               brainStormDate: output.getItem(in: indexPath.row).brainStormDate))
+        if let finish = output.getItem(in: indexPath.row).end {
+            if !finish {
+                output.continueGame(at: indexPath.row)
+                return
+            }
+            output.didTapCard(savedCard: output.getItem(in: indexPath.row))
+        }
     }
     
-}
-
-extension SavedCardViewController{
-    func reloadData(){
-        savedCardsCollectionView.reloadData()
-    }
 }

@@ -29,10 +29,13 @@ protocol DiscussionViewOutput: AnyObject {
     
     func getCountOfProblems() -> Int
     
-    func addProblem(problem: String) 
+    func addProblem(problem: String)
+    
+    func saveGame()
 }
 
 protocol DiscussionInteractorInput: AnyObject {
+    func updateGamesonFirebase(game: GameModel)
 }
 
 protocol DiscussionInteractorOutput: AnyObject {

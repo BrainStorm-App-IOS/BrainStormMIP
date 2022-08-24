@@ -42,7 +42,7 @@ extension EnterPlayerNamePresenter: EnterPlayerNameViewOutput {
     
     func nextPlayer() {
         currPlayer = MainNavigationController.navigationController.viewControllers.count - sizeOfStackAtStart
-        if (currPlayer == game.countOfPlayers) {
+        if (currPlayer == game.countOfPersons) {
 //            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
 //            print("all players")
             router.openPlayerProblems(game: game)

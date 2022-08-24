@@ -102,7 +102,7 @@ class IndexOffset : public util::Comparable<IndexOffset> {
    * Creates an offset that matches all documents with a read time higher than
    * `read_time`.
    */
-  static IndexOffset Create(SnapshotVersion read_time);
+  static IndexOffset CreateSuccessor(SnapshotVersion read_time);
 
   /** Creates a new offset based on the provided document. */
   static IndexOffset FromDocument(const Document& document);
@@ -132,6 +132,14 @@ class IndexOffset : public util::Comparable<IndexOffset> {
    */
   model::BatchId largest_batch_id() const {
     return largest_batch_id_;
+  }
+
+  /** Creates a pretty-printed description of the IndexOffset for debugging. */
+  std::string ToString() const {
+    return absl::StrCat(
+        "Index Offset: {read time: ", read_time_.ToString(),
+        ", document key: ", document_key_.ToString(),
+        ", largest batch id: ", std::to_string(largest_batch_id_), "}");
   }
 
   util::ComparisonResult CompareTo(const IndexOffset& rhs) const;

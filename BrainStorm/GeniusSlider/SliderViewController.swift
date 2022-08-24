@@ -11,6 +11,8 @@ import UIKit
 
 class SliderViewController: UIViewController {
     
+    static var isNull: Bool  = true
+    
     /// Data structure for custom cards - in this example, we're using an array of ImageCards
     var cards = [ImageCard]()
     /// The emojis on the sides are simply part of a view that sits ontop of everything else,
@@ -25,6 +27,16 @@ class SliderViewController: UIViewController {
         self.game = game
         self.counter = counter
         
+        if SliderViewController.isNull {
+            for result in game.results {
+                result.rating = 0
+            }
+        }
+        
+        SliderViewController.isNull = false
+        game.stage = 4
+        GameNetwork.refreshGameOnFirebase(game: game)
+        
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -34,6 +46,7 @@ class SliderViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        navigationItem.setHidesBackButton(true, animated: true)
         super.viewDidLoad()
         self.title = game.persons[game.persons.count - counter].name
         navigationItem.largeTitleDisplayMode = .never
@@ -44,7 +57,8 @@ class SliderViewController: UIViewController {
         // 20 cards for demonstrational purposes - once the cards run out, just re-run the project to start over
         // of course, you could always add new cards to self.cards and call layoutCards() again
         for index in 0..<game.results.count {
-            let card = ImageCard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height * 0.7), info: (game.persons[index].name, game.results[index].problem, game.results[index].solution))
+            print(index, game.results.count)
+            let card = ImageCard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height * 0.7), info: (game.persons[index].name, game.results[index].problem!, game.results[index].solution!))
             cards.append(card)
             //ratingCards[card] = 0
         }
@@ -287,7 +301,7 @@ class SliderViewController: UIViewController {
             if (self.counter == 1) {
                 var ratingCards = [ImageCard: Int]()
                 for index in 0..<self.game.results.count {
-                    let card = ImageCard(frame: CGRect(x: 0, y: 0, width: width, height: height), info: (self.game.persons[index].name, self.game.results[index].problem, self.game.results[index].solution))
+                    let card = ImageCard(frame: CGRect(x: 0, y: 0, width: width, height: height), info: (self.game.persons[index].name, self.game.results[index].problem!, self.game.results[index].solution!))
                     ratingCards[card] = self.game.results[index].rating
                 }
                 let sortedByValueDictionary = ratingCards.sorted { $0.1 > $1.1 }
@@ -302,6 +316,9 @@ class SliderViewController: UIViewController {
                     ratingData.append(SlidingCardsData(image: image, rating: 5, title: "\(count) Место", subtitle: "Набрано очков: \(rating)", description: "Проблема \n\n\(card.problemText.text!)\n\nРешение:\n\n\(card.solveText.text!)"))
                     //images.append(image)
                 }
+                SliderViewController.isNull = true
+                game.end = true
+                GameNetwork.refreshGameOnFirebase(game: game)
                 MainNavigationController.navigationController.pushViewController(RatingSliderViewController(slidingCards: ratingData, title: game.name), animated: false)
             } else {
                 self.counter -= 1
