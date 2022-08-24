@@ -13,7 +13,7 @@ final class TeammateCardSolutionRouter {
 
 extension TeammateCardSolutionRouter: TeammateCardSolutionRouterInput {
     func openNextScreen(game: GameModel) {
-        MainNavigationController.navigationController.pushViewController(SliderViewController(game: game), animated: true)
+        MainNavigationController.navigationController.pushViewController(SliderViewController(game: game, counter: game.results.count), animated: true)
     }
     
 }

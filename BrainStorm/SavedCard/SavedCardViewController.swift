@@ -69,7 +69,7 @@ final class SavedCardViewController: UIViewController {
         startBrainStormButton.setImage(UIImage(systemName: "plus"), for: .normal)
         startBrainStormButton.frame.size = CGSize(width: Const.startBrainStormButtonWidth,
                                                   height: Const.startBrainStormButtonHight)
-        startBrainStormButton.backgroundColor = .blue | .white
+        startBrainStormButton.backgroundColor = Color.defaltBlue | .white
         startBrainStormButton.tintColor = .white | .black
         startBrainStormButton.setTitleColor(.white | .black, for: .normal)
         startBrainStormButton.layer.cornerRadius = Const.startBrainStormButtonCornerRadius

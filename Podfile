@@ -11,5 +11,6 @@ target 'BrainStorm' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Purchases'
+  pod 'PinLayout'
 
 end

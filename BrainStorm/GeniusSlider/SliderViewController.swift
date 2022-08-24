@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import CardSlider
 
 class SliderViewController: UIViewController {
     
@@ -17,13 +18,12 @@ class SliderViewController: UIViewController {
     var emojiOptionsOverlay: EmojiOptionsOverlay!
     var num = 0
     
-    // 0 - name
-    // 1 - problem
-    // 2 - solution
     var game: GameModel
+    var counter: Int
     
-    init(game: GameModel) {
+    init(game: GameModel, counter: Int) {
         self.game = game
+        self.counter = counter
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,21 +35,18 @@ class SliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.setHidesBackButton(true, animated: true)
-        
-        self.navigationItem.largeTitleDisplayMode = .never
-        //navigationB.prefersLargeTitles = false
-        self.title = "Олег"
+        self.title = game.persons[game.persons.count - counter].name
+        navigationItem.largeTitleDisplayMode = .never
         self.view.backgroundColor = .systemBackground
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         
         // 1. create a deck of cards
         // 20 cards for demonstrational purposes - once the cards run out, just re-run the project to start over
         // of course, you could always add new cards to self.cards and call layoutCards() again
-        for index in 0..<game.countOfPlayers {
+        for index in 0..<game.results.count {
             let card = ImageCard(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height * 0.7), info: (game.persons[index].name, game.results[index].problem, game.results[index].solution))
             cards.append(card)
+            //ratingCards[card] = 0
         }
         
         // 2. layout the first 4 cards for the user
@@ -235,15 +232,16 @@ class SliderViewController: UIViewController {
         case .ended:
             
             dynamicAnimator.removeAllBehaviors()
-            num = emojiOptionsOverlay.activeSmile
-            print(num)
+            
+           // print(num)
                 emojiOptionsOverlay.hideFaceEmojis()
                 if !(cards[0].center.x > (self.view.center.x + requiredOffsetFromCenter) || cards[0].center.x < (self.view.center.x - requiredOffsetFromCenter)) {
                     // snap to center
                     let snapBehavior = UISnapBehavior(item: cards[0], snapTo: self.view.center)
                     dynamicAnimator.addBehavior(snapBehavior)
                 } else {
-                    
+                    num = emojiOptionsOverlay.activeSmile
+                    game.results[game.results.count - cards.count].rating += num
                     let velocity = sender.velocity(in: self.view)
                     let pushBehavior = UIPushBehavior(items: [cards[0]], mode: .instantaneous)
                     pushBehavior.pushDirection = CGVector(dx: velocity.x/10, dy: velocity.y/10)
@@ -267,13 +265,70 @@ class SliderViewController: UIViewController {
                     
                     showNextCard()
                     hideFrontCard()
-                    
+                    if cards.count == 1 {
+                        stopSliding()
+                    }
                 }
-            //}
         default:
             break
         }
     }
+    
+    func stopSliding() {
+        self.addBlur()
+        let alert = UIAlertController(title: "Готово!", message:"Передайте телефон следующему игроку", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "Начать", style: .default) { [self] _ in
+            
+           // let sortedByValueDictionary = self.ratingCards.sorted { $0.1 > $1.1 }
+            let width = self.view.frame.width * 0.7
+            let height = width / 0.6
+            //var images = [UIImage]()
+            if (self.counter == 1) {
+                var ratingCards = [ImageCard: Int]()
+                for index in 0..<self.game.results.count {
+                    let card = ImageCard(frame: CGRect(x: 0, y: 0, width: width, height: height), info: (self.game.persons[index].name, self.game.results[index].problem, self.game.results[index].solution))
+                    ratingCards[card] = self.game.results[index].rating
+                }
+                let sortedByValueDictionary = ratingCards.sorted { $0.1 > $1.1 }
+                var ratingData = [SlidingCardsData]()
+                var count = 0
+                for (card, rating) in sortedByValueDictionary {
+                    count += 1
+                          let renderer = UIGraphicsImageRenderer(size: card.bounds.size)
+                           let image = renderer.image { ctx in
+                               card.drawHierarchy(in: card.bounds, afterScreenUpdates: true)
+                          }
+                    ratingData.append(SlidingCardsData(image: image, rating: 5, title: "\(count) Место", subtitle: "Набрано очков: \(rating)", description: "Проблема \n\n\(card.problemText.text!)\n\nРешение:\n\n\(card.solveText.text!)"))
+                    //images.append(image)
+                }
+                MainNavigationController.navigationController.pushViewController(RatingSliderViewController(slidingCards: ratingData, title: game.name), animated: false)
+            } else {
+                self.counter -= 1
+                MainNavigationController.navigationController.pushViewController(SliderViewController(game: self.game, counter: self.counter), animated: false)
+            }
+            self.deleteBlur()
+        }
+        alert.addAction(action)
+        addBlur()
+        self.present(alert, animated: true)
+    }
+    
+    func addBlur() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 55
+        view.addSubview(blurEffectView)
+    }
+    
+    func deleteBlur() {
+        UIView.animate(withDuration: 0.25) {
+            self.view.viewWithTag(55)?.alpha = 0
+        }
+    }
+
     
     /// This function continuously checks to see if the card's center is on the screen anymore. If it finds that the card's center is not on screen, then it triggers removeOldFrontCard() which removes the front card from the data structure and from the view.
     var cardIsHiding = false
@@ -302,4 +357,12 @@ class SliderViewController: UIViewController {
             })
         }
     }
+}
+
+struct Item: CardSliderItem {
+    var image: UIImage
+    var rating: Int?
+    var title: String
+    var subtitle: String?
+    var description: String?
 }

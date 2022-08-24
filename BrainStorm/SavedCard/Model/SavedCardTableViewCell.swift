@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-final class SavedCardCollectionViewCell: UICollectionViewCell {
+final class SavedCardCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     //MARK: - defenition
     
@@ -31,19 +31,18 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        dateLabel.pin
-            .top(15)
-            .left(27)
         
-        titleLabel.pin
-            .below(of: dateLabel)
-            .marginTop(45)
-            .left(30)
-        
-        desctiptionLabel.pin
-            .bottom(15)
-            .right(27)
+//        titleLabel.pin
+//            .top(5)
+//            .left(10)
+//
+//        desctiptionLabel.pin
+//            .below(of: titleLabel, aligned: .left)
+//            .marginTop(5)
+//
+//        dateLabel.pin
+//            .hor
+//            .marginLeft(5)
     }
     
     //MARK: - setup
@@ -53,10 +52,26 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
         setupDate()
         setupTitle()
         setupDescription()
+        
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        
+        contentView.addGestureRecognizer(lpgr)
     }
     
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+            if gestureReconizer.state != UIGestureRecognizer.State.ended {
+                print("start")
+            }
+            else {
+                print("finish")
+            }
+        }
+    
     func setupTitle(){
-        titleLabel.font = .systemFont(ofSize: 30, weight: .regular)
+        titleLabel.font = .systemFont(ofSize: 20, weight: .regular)
         titleLabel.textColor = .black | .white
 
         

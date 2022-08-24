@@ -20,7 +20,7 @@ class CardView: UIView {
         
         // card style
         self.layer.borderColor = .init(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 1
         self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 18
         

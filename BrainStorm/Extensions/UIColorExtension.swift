@@ -33,4 +33,6 @@ struct Color{
     static let defaultBlackAndWhiteColor: UIColor = .black | .white
     static let defaultWhiteAndBlackColor: UIColor = .white | .black
     
+    static let defaltBlue: UIColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
+    
 }
