@@ -137,6 +137,7 @@ final class PlayerProblemsViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         continueButton.layer.borderWidth = 0
         continueButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
+        continueButton.setTitleColor(.gray, for: .highlighted)
         
         continueButton.addTarget(self, action: #selector(nextField), for: .touchUpInside)
         view.addSubview(continueButton)
@@ -155,6 +156,7 @@ final class PlayerProblemsViewController: UIViewController {
         problemsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         problemsCollectionView.register(ProblemCell.self)
         problemsCollectionView.register(ButtonProblemCell.self)
+        ProblemCell.isOpen = 0
         
         boxWithProblems.addSubview(problemsCollectionView)
     }

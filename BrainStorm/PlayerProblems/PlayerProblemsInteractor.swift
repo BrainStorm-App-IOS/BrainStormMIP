@@ -13,4 +13,7 @@ final class PlayerProblemsInteractor {
 }
 
 extension PlayerProblemsInteractor: PlayerProblemsInteractorInput {
+    func updateGamesonFirebase(game: GameModel) {
+        GameNetwork.refreshGameOnFirebase(game: game)
+    }
 }

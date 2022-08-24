@@ -37,9 +37,12 @@ protocol PlayerProblemsViewOutput: AnyObject {
     func getTheme() -> String
     
     func getCountofProblems() -> Int
+    
+    func  saveGame()
 }
 
 protocol PlayerProblemsInteractorInput: AnyObject {
+    func updateGamesonFirebase(game: GameModel) 
 }
 
 protocol PlayerProblemsInteractorOutput: AnyObject {

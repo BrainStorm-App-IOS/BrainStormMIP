@@ -48,7 +48,7 @@ final class DiscussionViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.setRightBarButton(UIBarButtonItem(customView: timeLabel), animated: true)
         navigationItem.setHidesBackButton(true, animated: true)
-    
+        
         setup()
         
         themesCollectionView.backgroundColor = .white
@@ -82,6 +82,10 @@ final class DiscussionViewController: UIViewController {
     
     @objc
     func nextField() {
+        if ProblemDiscussionCell.tappedCells.count != output.getCountOfProblems() {
+            showCanselAlert()
+            return
+        }
         for index in ProblemDiscussionCell.tappedCells {
             output.addProblem(problem: problems[index])
         }
@@ -102,13 +106,15 @@ final class DiscussionViewController: UIViewController {
     }
     
     
-    func showAlert() {
+    func showAlert(blur: Bool = true) {
         let alert = UIAlertController(title: "time is over", message:"", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Далее", style: .default) { _ in
         }
         alert.addAction(action)
-        addBlur()
+        if blur {
+            addBlur()
+        }
         self.present(alert, animated: true)
     }
     
@@ -135,6 +141,7 @@ final class DiscussionViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         continueButton.layer.borderWidth = 0
         continueButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
+        continueButton.setTitleColor(.gray, for: .highlighted)
         
         continueButton.addTarget(self, action: #selector(nextField), for: .touchUpInside)
         view.addSubview(continueButton)
@@ -170,7 +177,7 @@ final class DiscussionViewController: UIViewController {
             .maxHeight(1000)
             .top(10)
             .all()
-
+        
     }
 }
 
@@ -242,7 +249,7 @@ extension DiscussionViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension DiscussionViewController: ProblemAlert {
     func showCanselAlert() {
-        let alert = UIAlertController(title: "time is over", message:"", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Неверный выбор", message: "Выбрано неверное количество проблем", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Далее", style: .cancel)
         alert.addAction(action)

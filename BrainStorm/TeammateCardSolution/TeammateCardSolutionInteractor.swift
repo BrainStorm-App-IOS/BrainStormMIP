@@ -13,4 +13,7 @@ final class TeammateCardSolutionInteractor {
 }
 
 extension TeammateCardSolutionInteractor: TeammateCardSolutionInteractorInput {
+    func updateGamesonFirebase(game: GameModel) {
+        GameNetwork.refreshGameOnFirebase(game: game)
+    }
 }

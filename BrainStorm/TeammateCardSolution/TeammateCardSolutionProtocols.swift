@@ -24,9 +24,12 @@ protocol TeammateCardSolutionViewOutput: AnyObject {
     func getPersonName() -> String
     
     func getProblem() -> String
+    
+    func saveGame()
 }
 
 protocol TeammateCardSolutionInteractorInput: AnyObject {
+    func updateGamesonFirebase(game: GameModel)
 }
 
 protocol TeammateCardSolutionInteractorOutput: AnyObject {

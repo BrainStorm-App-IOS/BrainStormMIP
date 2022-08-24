@@ -13,8 +13,9 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     
     //MARK: - defenition
     
-    private let titleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-    private let desctiptionLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+    private let chevronImage: UIImageView = UIImageView(image: UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))!.withTintColor(Color.defaltBlue | .white, renderingMode: .alwaysOriginal))
+    private let titleLabel: UILabel = UILabel()
+    private let desctiptionLabel: UILabel = UILabel()
     private let dateLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
     
     required init?(coder: NSCoder) {
@@ -31,19 +32,22 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        dateLabel.pin
-            .top(15)
-            .left(27)
         
         titleLabel.pin
-            .below(of: dateLabel)
-            .marginTop(45)
-            .left(30)
-        
+            .top(10)
+            .left(10)
+            .sizeToFit()
+
         desctiptionLabel.pin
-            .bottom(15)
-            .right(27)
+            .bottom(5)
+            .left(10)
+            .marginTop(10)
+            .sizeToFit()
+
+
+        chevronImage.pin
+            .right(20)
+            .vCenter()
     }
     
     //MARK: - setup
@@ -53,14 +57,20 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
         setupDate()
         setupTitle()
         setupDescription()
+        setupChevronImage()
     }
     
     func setupTitle(){
-        titleLabel.font = .systemFont(ofSize: 30, weight: .regular)
+        titleLabel.font = .systemFont(ofSize: 20, weight: .regular)
         titleLabel.textColor = .black | .white
 
         
         contentView.addSubview(titleLabel)
+    }
+    
+    func setupChevronImage() {
+        
+        contentView.addSubview(chevronImage)
     }
     
     func setupDescription(){
@@ -74,25 +84,21 @@ final class SavedCardCollectionViewCell: UICollectionViewCell {
     func setupDate(){
         dateLabel.font = .systemFont(ofSize: 12, weight: .medium)
         dateLabel.textColor = .gray | .white
-        
-        contentView.addSubview(dateLabel)
     }
     
     func setupCard(){
-        contentView.layer.cornerRadius = 16
+        contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1) | .blue
-        contentView.layer.borderWidth = 1
+        contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1) | Color.defaultGray
+        contentView.layer.borderWidth = 0
         contentView.layer.borderColor = CGColor(red: 0, green: 0, blue: 255, alpha: 1)
     }
     
-    func configure(with savedCard: SavedCard) {
+    func configure(with savedCard: GameModel) {
         defer {
             setNeedsLayout()
         }
-        
-        dateLabel.text = savedCard.brainStormDate
-        titleLabel.text = savedCard.brainStormName
-        desctiptionLabel.text = savedCard.brainStormDescription
+        titleLabel.text = savedCard.name
+        desctiptionLabel.text = "\(savedCard.theme ?? "None") " + "•" + " \(savedCard.date ?? "0.0.0")"
     }
 }

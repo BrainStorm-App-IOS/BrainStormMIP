@@ -13,4 +13,7 @@ final class DiscussionInteractor {
 }
 
 extension DiscussionInteractor: DiscussionInteractorInput {
+    func updateGamesonFirebase(game: GameModel) {
+        GameNetwork.refreshGameOnFirebase(game: game)
+    }
 }

@@ -44,6 +44,7 @@ final class ProblemCell: UICollectionViewCell {
     
     private func setupProblemTextView() {
         problemTextView.delegate = self
+        problemTextView.font =  UIFont.systemFont(ofSize: 16)
         problemTextView.layer.cornerRadius = 15
         problemTextView.textContainer.lineBreakMode = .byWordWrapping
         problemTextView.backgroundColor = .none

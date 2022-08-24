@@ -9,6 +9,9 @@ import UIKit
 
 class ImageCard: CardView {
     
+    public var problemText = UITextView()
+    public var solveText = UITextView()
+    
     init(frame: CGRect, info: (String, String, String)) {
         super.init(frame: frame)
         
@@ -29,6 +32,7 @@ class ImageCard: CardView {
         problemText.layer.masksToBounds = true
         problemText.frame = CGRect(x: 1, y: problemLabel.bottom + 10, width: self.frame.width - 2, height: self.frame.height/2)
         self.addSubview(problemText)
+        self.problemText = problemText
         
         
         let solveLabel = UILabel()
@@ -48,6 +52,7 @@ class ImageCard: CardView {
         solveText.layer.masksToBounds = true
         solveText.frame = CGRect(x: 1, y: solveLabel.bottom + 10, width: self.frame.width - 2, height: self.bottom - solveLabel.bottom - 10)
         self.addSubview(solveText)
+        self.solveText = solveText
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -15,6 +15,7 @@ final class UIColorButton: UIButton{
         self.init()
         self.pressedColor = pressedColor
         self.notPressedColor = notPressedColor
+        backgroundColor = notPressedColor
     }
     
     public override var isHighlighted: Bool {

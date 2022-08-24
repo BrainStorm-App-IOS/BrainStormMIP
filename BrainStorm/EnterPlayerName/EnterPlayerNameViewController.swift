@@ -56,6 +56,13 @@ final class EnterPlayerNameViewController: UIViewController {
         setupButton()
     }
     
+    override func viewDidLayoutSubviews() {
+        addButton.pin
+            .horizontally(16)
+            .height(40)
+            .bottom(view.pin.safeArea.bottom + 16)
+    }
+    
     // MARK: setup UI elements
     
     func setupAvatarImageViewFrame() {
@@ -82,7 +89,7 @@ final class EnterPlayerNameViewController: UIViewController {
         nameField.layer.cornerRadius = 18
         nameField.layer.borderWidth = 1
         nameField.layer.borderColor = UIColor(red: 0.882, green: 0.89, blue: 0.902, alpha: 1).cgColor
-        nameField.placeholder = "Введите текст"
+        nameField.placeholder = "Введите имя"
         nameField.center = CGPoint(x: width * 0.5, y: height * 0.2 + width * 0.6)
         nameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 36))
         nameField.leftViewMode = .always
@@ -91,12 +98,10 @@ final class EnterPlayerNameViewController: UIViewController {
     }
     
     func setupButton() {
-        addButton.frame = CGRect(x: width * 0.2, y: height * 0.6 + width * 0.6, width: width * 0.6, height: 32)
-        addButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
-        addButton.layer.cornerRadius = 10
-        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
         addButton.setTitle("Далее", for: .normal)
-        addButton.tintColor = .white
+        addButton.layer.cornerRadius = 10
+        addButton.layer.borderWidth = 0
+        addButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
         addButton.setTitleColor(.gray, for: .highlighted)
         addButton.addTarget(self, action: #selector(pressedButton), for: .touchUpInside)
         view.addSubview(addButton)
@@ -110,9 +115,8 @@ final class EnterPlayerNameViewController: UIViewController {
             if name != "" {
                 output.addPerson(name: name)
                 output.nextPlayer()
-            }
-            
-            else {
+            } else {
+                nameField.attributedPlaceholder = NSAttributedString(string: "Введите имя", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.6)])
             }
         }
     }
@@ -131,6 +135,10 @@ extension EnterPlayerNameViewController: UITextFieldDelegate {
             nameField.resignFirstResponder()
         }
         return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.attributedPlaceholder = nil
+        textField.placeholder = "Введите имя"
     }
 }
 

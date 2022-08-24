@@ -61,6 +61,9 @@ final class ProblemDiscussionCell: UICollectionViewCell{
         
         contentView.addSubview(isChoosenView)
     }
+
+    //private let testView = UIView()
+     
     private func setupCard() {
         
         contentView.isUserInteractionEnabled = true
@@ -72,14 +75,19 @@ final class ProblemDiscussionCell: UICollectionViewCell{
     private func setupProblemTextView() {
         problemTextView.isEditable = false
         problemTextView.layer.cornerRadius = 20
+        problemTextView.font = UIFont.systemFont(ofSize: 16)
         problemTextView.textContainer.lineBreakMode = .byWordWrapping
         problemTextView.backgroundColor = .none
         
+        //testView.backgroundColor = .green
+        //contentView.addSubview(testView)
         contentView.addSubview(problemTextView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        problemTextView.pin.all()
         
         isChoosenView.pin
             .size(CGSize(width: 40, height: 40))
@@ -90,14 +98,26 @@ final class ProblemDiscussionCell: UICollectionViewCell{
             .size(CGSize(width: 30, height: 30))
             .center()
         
+        updateExclusionPaths()
+    }
+    
+    private func updateExclusionPaths() {
+        let exclusionFrame = contentView.convert(isChoosenView.frame, to: problemTextView)
+//        let expendedFrame = CGRect(x: exclusionFrame.minX - 5,
+//                                   y: exclusionFrame.minY - 5,
+//                                   width: exclusionFrame.width + 5 + 5,
+//                                   height: exclusionFrame.height + 5 + 5)
         
-        problemTextView.pin
-            .width(contentView.width)
-            .height(contentView.height)
-            .top()
-            .left()
+        let expendedFrame = CGRect(x: exclusionFrame.minX,
+                                   y: exclusionFrame.minY - 5,
+                                   width: exclusionFrame.width + 5,
+                                   height: exclusionFrame.height + 5)
         
-        problemTextView.textContainer.exclusionPaths = [UIBezierPath(rect: isChoosenView.frame)]
+        
+        
+        //testView.frame = expendedFrame
+        problemTextView.textContainer.exclusionPaths = [UIBezierPath(rect: expendedFrame)]
+        
     }
     
     func configure(number: Int, text: String, problemAlert: ProblemAlert){

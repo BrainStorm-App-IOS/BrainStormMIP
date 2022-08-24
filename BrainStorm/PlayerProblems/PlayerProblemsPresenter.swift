@@ -18,10 +18,15 @@ final class PlayerProblemsPresenter {
     private var game: GameModel
     private var currPlayer: Int = 0
     
-    init(router: PlayerProblemsRouterInput, interactor: PlayerProblemsInteractorInput, game: GameModel) {
+    init(router: PlayerProblemsRouterInput, interactor: PlayerProblemsInteractorInput, game: GameModel, currPlayer: Int = 0) {
         self.router = router
         self.interactor = interactor
         self.game = game
+        
+        self.currPlayer = currPlayer
+        self.game.stoppedPerson = currPlayer
+        self.game.stage = 1
+        saveGame()
     }
 }
 
@@ -29,12 +34,18 @@ extension PlayerProblemsPresenter: PlayerProblemsModuleInput {
 }
 
 extension PlayerProblemsPresenter: PlayerProblemsViewOutput {
+    func saveGame() {
+        interactor.updateGamesonFirebase(game: game)
+    }
+    
     func nextPlayer() {
-        if (currPlayer == game.countOfPlayers - 1) {
+        if (currPlayer == game.countOfPersons! - 1) {
             router.openDiscussion(game: game)
             //router.openNextScreen()
         } else {
             currPlayer += 1
+            game.stoppedPerson! += 1
+            saveGame()
             view = router.nextDisplay(presenter: self)
         }
     }

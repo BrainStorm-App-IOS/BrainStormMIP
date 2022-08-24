@@ -16,14 +16,23 @@ final class TeammateCardSolutionPresenter {
     private let interactor: TeammateCardSolutionInteractorInput
     
     private var game: GameModel
-    private var currCardInd: Int = 1
+    private var currCardInd: Int = 0
     
     init(router: TeammateCardSolutionRouterInput,
          interactor: TeammateCardSolutionInteractorInput,
-         game: GameModel) {
+         game: GameModel,
+         currCardInd: Int = 0) {
         self.router = router
         self.interactor = interactor
         self.game = game
+        
+        self.currCardInd = currCardInd
+        
+        self.game.stage = 3
+        
+        self.game.stoppedPerson = currCardInd
+        
+        saveGame()
     }
 }
 
@@ -31,31 +40,36 @@ extension TeammateCardSolutionPresenter: TeammateCardSolutionModuleInput {
 }
 
 extension TeammateCardSolutionPresenter: TeammateCardSolutionViewOutput {
+    func saveGame() {
+        interactor.updateGamesonFirebase(game: game)
+    }
+    
     func getPersonName() -> String {
-        print(game.persons[currCardInd - 1].name)
-        return game.persons[currCardInd - 1].name
+        return game.persons[currCardInd].name
     }
     
     func getProblem() -> String {
-        return game.results[currCardInd - 1].problem
+        return game.results[currCardInd].problem!
     }
     
     func openNextScreen(solution: String) {
 //        let resultCard = (cards[currCardInd - 1].0, cards[currCardInd - 1].1, solution)
 //        print(resultCard)
 //        resultCards.append(resultCard)
-        game.results[currCardInd - 1].solution = solution
-        if currCardInd == game.countOfPlayers {
+        game.results[currCardInd].solution = solution
+        if currCardInd == game.countOfPersons - 1 {
             // go to next Display
-            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(1)
+//            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(1)
             router.openNextScreen(game: game)
         } else {
             currCardInd += 1
+            game.stoppedPerson! += 1
             let viewTmp = TeammateCardSolutionViewController(output: self)
             view = viewTmp
-            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(1)
+            //MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(1)
             viewTmp.addBlur()
             MainNavigationController.navigationController.pushViewController(viewTmp, animated: false)
+            saveGame()
             viewTmp.deleteBlur()
         }
     }

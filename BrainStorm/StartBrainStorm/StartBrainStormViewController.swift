@@ -18,15 +18,16 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
                                     "Воспитание", "Психология", "Нумерология",
                                     "Астрология", "NFT", "Блокчейн",
                                     "Астрономия", "Биология", "Биоинформатика",
-                                    "Медицина"]
-
+                                    "Медицина", "Другое"]
+    
     private var currentTheme: IndexPath?
     
     private let output: StartBrainStormViewOutput
     
-    private var countOfPlayers: Int = 0
+    private var countOfPlayers: Int = 2
     
-    private let openPickerButton: UIColorButton = UIColorButton(pressedColor: UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1),
+    private let openPickerButton: UIColorButton = UIColorButton(pressedColor: UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1) |
+        .white,
                                                                 notPressedColor: .white)
     
     private let chooseCountOfPeopleLable: UILabel = UILabel()
@@ -108,7 +109,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
             .horizontally(16)
             .height(40)
             .bottom(view.pin.safeArea.bottom + 16)
-    
+        
         
         boxWithplayersCollectionView.pin
             .size(CGSize(width: UIScreen.screenWidth, height: 520))
@@ -123,7 +124,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     //MARK: - setup
     
     func setup(){
-        view.backgroundColor = .white
+        view.backgroundColor = Color.defaultWhiteAndBlackColor
         
         setupNavigationBar()
         setupPlayersCollectionView()
@@ -133,18 +134,18 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
         setupOpenPickerButton()
         setupBrainStormBeginGameButton()
         setupLine()
-
+        
     }
     
     func setupNavigationBar() {
         /*let configuration = UIImage.SymbolConfiguration(pointSize: 24)
-        //let image = UIImage(systemName: "arrow.left.circle",  withConfiguration: configuration)?.withTintColor(.black, renderingMode: .alwaysOriginal)
-        let backBTN = UIBarButtonItem(image: image,
-                                      style: .plain,
-                                      target: navigationController,
-                                      action: #selector(UINavigationController.popViewController(animated:)))
-        navigationItem.leftBarButtonItem = backBTN
-        navigationController?.interactivePopGestureRecognizer?.delegate = self*/
+         //let image = UIImage(systemName: "arrow.left.circle",  withConfiguration: configuration)?.withTintColor(.black, renderingMode: .alwaysOriginal)
+         let backBTN = UIBarButtonItem(image: image,
+         style: .plain,
+         target: navigationController,
+         action: #selector(UINavigationController.popViewController(animated:)))
+         navigationItem.leftBarButtonItem = backBTN
+         navigationController?.interactivePopGestureRecognizer?.delegate = self*/
     }
     
     func setupLine() {
@@ -169,7 +170,6 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     func setupOpenPickerButton(){
         openPickerButton.setTitle("\(countOfPlayers)", for: .normal)
         openPickerButton.setTitleColor(.black, for: .normal)
-        openPickerButton.backgroundColor = .white
         openPickerButton.layer.cornerRadius = 10
         openPickerButton.layer.borderWidth = 1
         openPickerButton.center = view.center
@@ -188,10 +188,11 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     }
     
     func setupBrainStormNameTextField(){
-        brainStormNameTextField.backgroundColor = .white
+        brainStormNameTextField.backgroundColor = Color.defaultWhiteAndBlackColor
         brainStormNameTextField.font = .systemFont(ofSize: 20, weight: UIFont.Weight(rawValue: 15))
-        brainStormNameTextField.textColor = .black
+        brainStormNameTextField.textColor = Color.defaultBlackAndWhiteColor
         brainStormNameTextField.delegate = self
+        brainStormNameTextField.placeholder = "Введите название"
         brainStormNameTextField.contentVerticalAlignment = .center
         brainStormNameTextField.textAlignment = .left
         brainStormNameTextField.borderStyle = .none
@@ -202,15 +203,17 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     func setupBbrainStormTeamNameLabel(){
         brainStormTeamNameLabel.text = "Название команды"
         brainStormTeamNameLabel.font = .systemFont(ofSize: 14)
-        brainStormTeamNameLabel.textColor = .black
+        brainStormTeamNameLabel.textColor = Color.defaultBlackAndWhiteColor
         view.addSubview(brainStormTeamNameLabel)
     }
     
     func setupBrainStormBeginGameButton(){
         brainStormBeginGameButton.setTitle("Начать", for: .normal)
+        brainStormBeginGameButton.setTitleColor(Color.defaultWhiteAndBlackColor, for: .normal)
         brainStormBeginGameButton.layer.cornerRadius = 10
         brainStormBeginGameButton.layer.borderWidth = 0
-        brainStormBeginGameButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
+        brainStormBeginGameButton.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1) | .white
+        brainStormBeginGameButton.setTitleColor(.gray, for: .highlighted)
         
         brainStormBeginGameButton.addTarget(self, action: #selector(beginGame), for: .touchUpInside)
         view.addSubview(brainStormBeginGameButton)
@@ -229,18 +232,27 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
         if let teamName = brainStormNameTextField.text {
             if let themeNumber = currentTheme?.row {
                 output.setTheme(theme: themes[themeNumber])
+            } else {
+                let alertController = UIAlertController(title: "Отсутствует тематика", message: "Выберите одну из тематик", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .default)
+                alertController.addAction(action)
+                self.present(alertController, animated: true)
+                return
             }
             
             if teamName != "" {
                 output.setTeamName(teamName: teamName)
+            } else {
+                brainStormNameTextField.attributedPlaceholder = NSAttributedString(string: "Введите название", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.6)])
+                return
             }
             
             output.setCountOfPlayers(countOfPlayers: countOfPlayers)
-        
+            
             output.openEnterPlayerName()
         }
         
-        else{
+        else {
             brainStormNameTextField.text = ""
         }
     }
@@ -250,7 +262,7 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     @objc
     func openPicker(){
         let alert = UIAlertController(title: "", message:"\n\n\n\n\n\n", preferredStyle: .alert)
-
+        
         let chooseCountOfPlayerPicker: UIPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 270, height: 140))
         
         chooseCountOfPlayerPicker.delegate = self
@@ -272,10 +284,10 @@ private extension StartBrainStormViewController {
         static let brainStormSendNameAndDescriptionButtonWidth: CGFloat = UIScreen.screenWidth/2 + UIScreen.screenWidth/4
         static let brainStormSendNameAndDescriptionButtonHight: CGFloat = 50
         static let brainStormSendNameAndDescriptionButtonY: CGFloat = UIScreen.screenHeight/2
-                                                                    + UIScreen.screenHeight/4
-                                                                    + UIScreen.screenHeight/8
-                                                                    - UIScreen.screenHeight/32
-                                                                    + UIScreen.screenHeight/64
+        + UIScreen.screenHeight/4
+        + UIScreen.screenHeight/8
+        - UIScreen.screenHeight/32
+        + UIScreen.screenHeight/64
         
     }
     
@@ -303,6 +315,11 @@ extension StartBrainStormViewController: UITextFieldDelegate{
         }
         
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.attributedPlaceholder = nil
+        textField.placeholder = "Введите название"
+    }
 }
 
 
@@ -314,7 +331,7 @@ extension StartBrainStormViewController: UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Const.MaxCountOfPlayers + 1
+        return Const.MaxCountOfPlayers - 1
     }
     
     
@@ -322,11 +339,11 @@ extension StartBrainStormViewController: UIPickerViewDataSource{
 
 extension StartBrainStormViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row)"
+        return "\(row + 2)"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        countOfPlayers = row
+        countOfPlayers = row + 2
         openPickerButton.setTitle("\(countOfPlayers)", for: .normal)
     }
 }
@@ -367,32 +384,32 @@ extension StartBrainStormViewController: UICollectionViewDelegate, UICollectionV
             return
         }
         if let cell = collectionView.cellForItem(at: indexPath) as? ThemeViewCell {
-            cell.contentView.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1)
-            cell.newLabelTextColor(color: .white)
+            cell.contentView.backgroundColor = UIColor(red: 0.27, green: 0.373, blue: 0.913, alpha: 1) | .white
+            cell.newLabelTextColor(color: Color.defaultWhiteAndBlackColor)
             if let current = currentTheme {
                 let lastCell = collectionView.cellForItem(at: current) as? ThemeViewCell
                 lastCell?.newLabelTextColor(color: UIColor(red: 0.506, green: 0.549, blue: 0.6, alpha: 1))
-                lastCell?.contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1)
+                lastCell?.contentView.backgroundColor = UIColor(red: 0.958, green: 0.958, blue: 0.958, alpha: 1) | Color.defaultGray
             }
             
         }
         currentTheme = indexPath
     }
-
+    
     
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 8
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 8
+        return 10
     }
     
 }

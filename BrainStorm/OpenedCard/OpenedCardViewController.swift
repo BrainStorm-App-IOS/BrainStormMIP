@@ -12,11 +12,11 @@ final class OpenedCardViewController: UIViewController {
     
     //MARK: - defenition
     private let output: OpenedCardViewOutput
-    private let savedCard: SavedCard
+    private let savedCard: GameModel
     
     private var nameLabel: UILabel = UILabel()
     private var DescriptionLabel: UILabel = UILabel()
-    init(output: OpenedCardViewOutput, savedCard: SavedCard) {
+    init(output: OpenedCardViewOutput, savedCard: GameModel) {
         self.output = output
         self.savedCard = savedCard
 
@@ -69,9 +69,9 @@ extension OpenedCardViewController {
 //MARK: - OpenedCardViewInput
 
 extension OpenedCardViewController: OpenedCardViewInput {
-    func set(savedCard: SavedCard) {
-        nameLabel.text = savedCard.brainStormName
-        DescriptionLabel.text = savedCard.brainStormDescription
+    func set(savedCard: GameModel) {
+        nameLabel.text = savedCard.name
+        DescriptionLabel.text = savedCard.theme
         
         view.setNeedsLayout()
         view.layoutIfNeeded()

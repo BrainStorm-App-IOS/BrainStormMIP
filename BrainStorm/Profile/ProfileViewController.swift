@@ -50,7 +50,6 @@ final class ProfileViewController: UIViewController {
                 if success {
                     DispatchQueue.main.async {
                         UserDefaults.standard.set(nil, forKey: "email")
-                        UserDefaults.standard.set(nil, forKey: "name")
                         let signInVc = SignInViewController()
                         signInVc.navigationItem.largeTitleDisplayMode = .always
                         
@@ -81,7 +80,7 @@ extension ProfileViewController {
         //        view.addSubview(imageSunView)
         view.addSubview(mail)
         view.addSubview(textUs)
-        view.backgroundColor = .white
+        view.backgroundColor = Color.defaultWhiteAndBlackColor
         
     }
     
@@ -94,12 +93,12 @@ extension ProfileViewController {
             action: #selector(didTapSignOut)
         )
         
-        name.text = "Claristha"
+        name.text = UserDefaults.standard.string(forKey: "имя") ?? ""
         name.font = UIFont(name: "Inter-Bold", size: 20)
         name.frame = CGRect(x: 174, y: 195, width: 120, height: 18)
         name.sizeToFit()
         
-        mail.text = "pavek.pupas@yabn.ru"
+        mail.text = UserDefaults.standard.string(forKey: "email") ?? ""
         mail.textColor = .gray
         mail.font = UIFont(name: "Inter-Regular", size: 16)
         mail.frame = CGRect(x: 174, y: 225, width: 180, height: 17)

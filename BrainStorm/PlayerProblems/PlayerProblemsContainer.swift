@@ -16,7 +16,10 @@ final class PlayerProblemsContainer {
     class func assemble(with context: PlayerProblemsContext) -> PlayerProblemsContainer {
         let router = PlayerProblemsRouter()
         let interactor = PlayerProblemsInteractor()
-        let presenter = PlayerProblemsPresenter(router: router, interactor: interactor, game: context.game)
+        var presenter = PlayerProblemsPresenter(router: router, interactor: interactor, game: context.game)
+        if let player = context.currPlayer {
+            presenter = PlayerProblemsPresenter(router: router, interactor: interactor, game: context.game, currPlayer: player)
+        }
         let viewController = PlayerProblemsViewController(output: presenter)
         
         presenter.view = viewController
@@ -37,4 +40,5 @@ final class PlayerProblemsContainer {
 struct PlayerProblemsContext {
     weak var moduleOutput: PlayerProblemsModuleOutput?
     var game: GameModel
+    var currPlayer: Int?
 }

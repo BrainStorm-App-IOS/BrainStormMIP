@@ -21,6 +21,10 @@ final class DiscussionPresenter {
         self.router = router
         self.interactor = interactor
         self.game = game
+        
+        self.game.stage = 2
+        
+        saveGame()
     }
 }
 
@@ -28,8 +32,14 @@ extension DiscussionPresenter: DiscussionModuleInput {
 }
 
 extension DiscussionPresenter: DiscussionViewOutput {
+    func saveGame() {
+        interactor.updateGamesonFirebase(game: game)
+    }
+    
     func addProblem(problem: String) {
-        game.results.append(ResultModel(problem: problem))
+        var result = ResultModel()
+        result.add(problem: problem)
+        game.results.append(result)
     }
     
     func getTeamName() -> String {
@@ -54,7 +64,7 @@ extension DiscussionPresenter: DiscussionViewOutput {
     }
     
     func getCountOfProblems() -> Int {
-        return game.countOfPlayers
+        return game.countOfPersons
     }
     
     func openNextField() {
