@@ -15,12 +15,13 @@ class SignInHeaderView: UIView {
         return imageView
     }()
     
-    private let label: UILabel = {
+    let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 20, weight: .medium)
         label.text = ""
+        label.textColor = .red
         return label
     }()
 
