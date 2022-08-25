@@ -27,16 +27,15 @@ class TabBarController: UITabBarController, ProfileModuleOutput {
         let ProfileContainer = ProfileContainer.assemble(with: ProfileContext)
         let ProfileNavigationController = UINavigationController(rootViewController: ProfileContainer.viewController)
         MainNavigationController.navigationController.navigationBar.prefersLargeTitles = true
-        //SavedCardNavigationController.navigationBar.isHidden = true
         ProfileNavigationController.navigationBar.prefersLargeTitles = true
         
         MainNavigationController.navigationController.tabBarItem.image = UIImage(systemName: "brain")
         ProfileContainer.viewController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
         setViewControllers([MainNavigationController.navigationController,ProfileNavigationController], animated: true)
-        tabBar.tintColor = .blue | .yellow
+        tabBar.tintColor = Color.defaltBlue | .white
         
-        tabBar.unselectedItemTintColor = .black | .white
+        tabBar.unselectedItemTintColor = .black | Color.defaultGray
     }
 }
 

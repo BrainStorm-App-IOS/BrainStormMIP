@@ -36,5 +36,5 @@ final class OpenedCardContainer {
 
 struct OpenedCardContext {
     weak var moduleOutput: OpenedCardModuleOutput?
-    var savedCard: SavedCard
+    var savedCard: GameModel
 }

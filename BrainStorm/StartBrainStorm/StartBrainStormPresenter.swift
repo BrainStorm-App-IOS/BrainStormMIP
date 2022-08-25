@@ -14,10 +14,14 @@ final class StartBrainStormPresenter {
     
     private let router: StartBrainStormRouterInput
     private let interactor: StartBrainStormInteractorInput
+    private var game: GameModel
     
-    init(router: StartBrainStormRouterInput, interactor: StartBrainStormInteractorInput) {
+    init(router: StartBrainStormRouterInput, interactor: StartBrainStormInteractorInput, game: GameModel) {
         self.router = router
         self.interactor = interactor
+        self.game = game
+        
+        self.game.end = false
     }
 }
 
@@ -25,21 +29,31 @@ extension StartBrainStormPresenter: StartBrainStormModuleInput {
 }
 
 extension StartBrainStormPresenter: StartBrainStormViewOutput {
-    func openEnterPlayerName(count: Int) {
-        router.openEnterPlayerName(count: count)
-    }
-    
-    func startBrainStorm(name: String) {
-        moduleOutput?.addCard(savedCard: SavedCard(brainStormName: name,
-                                                   brainStormDescription: " ",
-                                                   brainStormDate: getDateString()))
-        
+    func openEnterPlayerName() {
+        game.date = getDateString()
+        saveGame()
+        router.openEnterPlayerName(game: game)
     }
     
     func viewDidLoad() {
         
     }
     
+    func setTheme(theme: String) {
+        game.theme = theme
+    }
+    
+    func saveGame() {
+        interactor.saveGame(game: game)
+    }
+    
+    func setCountOfPlayers(countOfPlayers: Int) {
+        game.countOfPersons = countOfPlayers
+    }
+    
+    func setTeamName(teamName: String) {
+        game.name = teamName
+    }
     
     func getDateString() -> String {
         let date = Date()
@@ -47,7 +61,7 @@ extension StartBrainStormPresenter: StartBrainStormViewOutput {
         let day = calendar.component(.day, from:  date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        
+
         return "\(day).\(month).\(year)"
     }
     

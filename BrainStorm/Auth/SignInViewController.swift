@@ -33,7 +33,7 @@ class SignInViewController: UITabBarController {
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.placeholder = "Пароль"
-        //field.isSecureTextEntry = true
+        field.isSecureTextEntry = true
         field.backgroundColor = .secondarySystemBackground
         field.layer.cornerRadius = 8
         field.layer.masksToBounds = true
@@ -57,14 +57,25 @@ class SignInViewController: UITabBarController {
         button.layer.cornerRadius = 18
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //title = "Вход"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        view.addGestureRecognizer(tapGesture)
+        
         view.backgroundColor = .systemBackground
         view.addSubview(headerView)
-        view.addSubview(emailField)
-        view.addSubview(passwordField)
+        let tmpEmail = emailField
+        tmpEmail.delegate = self
+        view.addSubview(tmpEmail)
+        let tmpPassword = passwordField
+        tmpPassword.delegate = self
+        view.addSubview(tmpPassword)
         view.addSubview(signInButton)
         view.addSubview(createAccountButton)
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
@@ -81,16 +92,36 @@ class SignInViewController: UITabBarController {
     }
     
     @objc func didTapSignIn() {
-        guard let email = emailField.text, !email.isEmpty, let password = passwordField.text, !password.isEmpty else {
+        guard let email = emailField.text, !email.isEmpty else {
+            emailField.attributedPlaceholder = NSAttributedString(string: "Электронная почта", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.6)])
+            if passwordField.text == nil || passwordField.text!.isEmpty {
+                passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.6)])
+            }
+            return
+        }
+        
+        guard let password = passwordField.text, !password.isEmpty else {
+            passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red.withAlphaComponent(0.6)])
             return
         }
         
         AuthManager.shared.signIn(email: email, password: password) { [weak self] success in
             guard success else {
+                self?.headerView.label.text = "Неверный пароль или email"
                 return
             }
             UserDefaults.standard.set(email, forKey: "email")
             DispatchQueue.main.async {
+                GameNetwork.getName { result in
+                    switch result {
+                    case .success(let name):
+                        UserDefaults.standard.set(name, forKey: "имя")
+                    default:
+                        print("gggggg")
+                        self?.headerView.label.text = "Неверный пароль или email"
+                        return
+                    }
+                }
                 let vc = TabBarController()
                 vc.modalPresentationStyle = .fullScreen
                 self?.present(vc, animated: true)
@@ -103,5 +134,44 @@ class SignInViewController: UITabBarController {
         vc.title = "Создание аккаунта"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case emailField:
+            emailField.attributedPlaceholder = nil
+            emailField.placeholder = "Электронная почта"
+            self.headerView.label.text = ""
+        case passwordField:
+            passwordField.attributedPlaceholder = nil
+            passwordField.placeholder = "Пароль"
+            self.headerView.label.text = ""
+        default:
+            print("somthing wrong")
+        }
+    }
+}
+
+extension SignInViewController {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += (view.bounds.height - keyboardSize.height - 700)
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc
+    func tap(gesture: UITapGestureRecognizer) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
 }

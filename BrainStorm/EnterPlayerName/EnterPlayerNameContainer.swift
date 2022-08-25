@@ -16,7 +16,7 @@ final class EnterPlayerNameContainer {
     class func assemble(with context: EnterPlayerNameContext) -> EnterPlayerNameContainer {
         let router = EnterPlayerNameRouter()
         let interactor = EnterPlayerNameInteractor()
-        let presenter = EnterPlayerNamePresenter(router: router, interactor: interactor, count: context.count)
+        let presenter = EnterPlayerNamePresenter(router: router, interactor: interactor, game: context.game)
         let viewController = EnterPlayerNameViewController(output: presenter, currPlayer: 1)
         
         presenter.view = viewController
@@ -38,5 +38,5 @@ final class EnterPlayerNameContainer {
 
 struct EnterPlayerNameContext {
     weak var moduleOutput: EnterPlayerNameModuleOutput?
-    var count: Int
+    var game: GameModel
 }

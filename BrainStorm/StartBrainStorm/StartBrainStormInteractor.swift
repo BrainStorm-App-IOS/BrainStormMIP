@@ -13,4 +13,8 @@ final class StartBrainStormInteractor {
 }
 
 extension StartBrainStormInteractor: StartBrainStormInteractorInput {
+    
+    func saveGame(game: GameModel) {
+        GameNetwork.createGameOnFirebase(game: game)
+    }
 }

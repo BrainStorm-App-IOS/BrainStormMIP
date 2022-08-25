@@ -18,14 +18,15 @@ final class EnterPlayerNamePresenter {
     private let router: EnterPlayerNameRouterInput
     // in Interactor
     private let interactor: EnterPlayerNameInteractorInput
-    private let count: Int
     private let sizeOfStackAtStart: Int
     private var currPlayer = 1
     
-    init(router: EnterPlayerNameRouterInput, interactor: EnterPlayerNameInteractorInput, count: Int) {
+    private var game: GameModel
+    
+    init(router: EnterPlayerNameRouterInput, interactor: EnterPlayerNameInteractorInput, game: GameModel) {
         self.router = router
         self.interactor = interactor
-        self.count = count
+        self.game = game
         sizeOfStackAtStart = MainNavigationController.navigationController.viewControllers.count
     }
     
@@ -35,15 +36,17 @@ extension EnterPlayerNamePresenter: EnterPlayerNameModuleInput {
 }
 
 extension EnterPlayerNamePresenter: EnterPlayerNameViewOutput {
-    func nextPlayer(name: String) {
+    func addPerson(name: String) {
+        game.persons.append(PersonModel(name: name))
+    }
+    
+    func nextPlayer() {
         currPlayer = MainNavigationController.navigationController.viewControllers.count - sizeOfStackAtStart
-        print("Current player: \(currPlayer) name is \(name)")
-        if (currPlayer == count) {
-            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
-            print("all players")
+        if (currPlayer == game.countOfPersons) {
+//            MainNavigationController.navigationController.viewControllers = MainNavigationController.navigationController.viewControllers.dropLast(currPlayer)
+//            print("all players")
+            router.openPlayerProblems(game: game)
         } else {
-            print("start stack size: \(sizeOfStackAtStart)")
-            print("stack size: \(MainNavigationController.navigationController.viewControllers.count)")
             currPlayer += 1
             view = router.nextDisplay(cntPlayer: currPlayer, presenter: self)
         }
