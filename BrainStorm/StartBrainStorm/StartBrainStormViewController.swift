@@ -12,12 +12,12 @@ final class StartBrainStormViewController: UIViewController, UIGestureRecognizer
     
     //MARK: - Defenition
     
-    private var themes: [String] = ["Математика", "Медицина", "Наука",
+    private var themes: [String] = ["Лето", "Математика", "Медицина", "Наука",
                                     "Физика", "Литература", "It",
                                     "Экология", "Философия", "Экономика",
                                     "Воспитание", "Психология", "Нумерология",
                                     "Астрология", "NFT", "Блокчейн",
-                                    "Астрономия", "Биология", "Биоинформатика",
+                                    "Астрономия", "Биология",
                                     "Медицина", "Другое"]
     
     private var currentTheme: IndexPath?
