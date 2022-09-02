@@ -61,8 +61,6 @@ final class ProblemDiscussionCell: UICollectionViewCell{
         
         contentView.addSubview(isChoosenView)
     }
-
-    //private let testView = UIView()
      
     private func setupCard() {
         
@@ -78,9 +76,6 @@ final class ProblemDiscussionCell: UICollectionViewCell{
         problemTextView.font = UIFont.systemFont(ofSize: 16)
         problemTextView.textContainer.lineBreakMode = .byWordWrapping
         problemTextView.backgroundColor = .none
-        
-        //testView.backgroundColor = .green
-        //contentView.addSubview(testView)
         contentView.addSubview(problemTextView)
     }
     
@@ -103,10 +98,6 @@ final class ProblemDiscussionCell: UICollectionViewCell{
     
     private func updateExclusionPaths() {
         let exclusionFrame = contentView.convert(isChoosenView.frame, to: problemTextView)
-//        let expendedFrame = CGRect(x: exclusionFrame.minX - 5,
-//                                   y: exclusionFrame.minY - 5,
-//                                   width: exclusionFrame.width + 5 + 5,
-//                                   height: exclusionFrame.height + 5 + 5)
         
         let expendedFrame = CGRect(x: exclusionFrame.minX,
                                    y: exclusionFrame.minY - 5,
@@ -114,8 +105,6 @@ final class ProblemDiscussionCell: UICollectionViewCell{
                                    height: exclusionFrame.height + 5)
         
         
-        
-        //testView.frame = expendedFrame
         problemTextView.textContainer.exclusionPaths = [UIBezierPath(rect: expendedFrame)]
         
     }

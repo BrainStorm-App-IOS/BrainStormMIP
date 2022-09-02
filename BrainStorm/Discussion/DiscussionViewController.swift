@@ -89,6 +89,7 @@ final class DiscussionViewController: UIViewController {
         for index in ProblemDiscussionCell.tappedCells {
             output.addProblem(problem: problems[index])
         }
+        ProblemDiscussionCell.tappedCells = []
         output.openNextField()
     }
     
